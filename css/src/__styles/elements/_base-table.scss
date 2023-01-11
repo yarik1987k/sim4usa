@@ -1,0 +1,106 @@
+/* stylelint-disable selector-max-compound-selectors */
+
+/* BASE TABLES */
+#page {
+	.tablepress-table-name {
+		font-size: rem(24);
+		line-height: rem(28);
+		letter-spacing: rem(1.5);
+		text-transform: none;
+	}
+
+	.tablepress {
+		padding: 0 rem(20) 0 0;
+		margin: rem(33) 0 rem(33);
+		white-space: nowrap;
+
+		@include media-breakpoint-down(sm) {
+			margin: rem(16) 0 rem(16);
+		}
+
+		caption {
+			display: none;
+		}
+
+		thead {
+			th {
+				padding: 0 rem(21) rem(16);
+				position: relative;
+				font-size: rem(12);
+				font-weight: 700;
+				color: paint(text-dark);
+				letter-spacing: rem(1);
+				text-transform: uppercase;
+				border: none;
+				background-color: transparent;
+
+				br {
+					display: none;
+				}
+			}
+
+			tr {
+				border: none;
+			}
+		}
+
+		tbody {
+			td {
+				padding: rem(17) rem(19) rem(17);
+				position: relative;
+				font-size: rem(16);
+				line-height: rem(20);
+				color: paint(text-dark);
+				border: 0;
+
+				@include media-breakpoint-down(sm) {
+					padding: rem(17) rem(90) rem(17) rem(21);
+				}
+			}
+
+			tr {
+				position: relative;
+				border-bottom: 1px solid rgba(paint(accent), 0.6);
+
+				&:nth-child(2n + 1) {
+					background: rgba(paint(accent), 0.1);
+				}
+			}
+		}
+	}
+
+	.tablepress-scroll-wrapper {
+		position: relative;
+		margin: rem(33) 0 rem(33);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&.has-scroll {
+			.tablepress {
+				display: block;
+				overflow-x: auto;
+			}
+
+			&::before {
+				content: "";
+				pointer-events: none;
+				display: block;
+				width: rem(115);
+				position: absolute;
+				z-index: 2;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(to right, rgba(paint(text-light), 0) 0%, paint(text-light) 100%);
+			}
+		}
+
+		.tablepress {
+			margin: 0;
+		}
+	}
+}
+
+/* stylelint-enable selector-max-compound-selectors */

@@ -1,0 +1,16 @@
+.leadparagraph {
+	font-size: rem(20);
+	line-height: 1.2;
+	margin-bottom: rem(48);
+
+	@include media-breakpoint-up(md) {
+		font-size: rem(34);
+		line-height: rem(40);
+		margin-bottom: rem(80);
+	}
+}
+
+.highlight-text {
+	padding: rem(3) 0;
+	background: rgba(paint(accent), 0.1);
+}

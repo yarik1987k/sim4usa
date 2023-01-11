@@ -1,0 +1,77 @@
+/****************
+ * Fonts
+ ****************/
+$font-base: "Open Sans", sans-serif;
+
+/****************
+ * Paints
+ ****************/
+$paints: (
+	accent: #6200ee,
+	accent-variant: #3700b3,
+	bg-dark: #000,
+	bg-light: #fff,
+	text-dark: #000,
+	text-light: #fff,
+	neutral-30: #4c4c4c,
+	neutral-45: #737373,
+	neutral-70: #b3b3b3,
+	neutral-88: #e1e1e1,
+	neutral-94: #f0f0f0,
+	neutral-97: #f7f7f7,
+	error: #b00020,
+	warning: #f9a513,
+	success: #008737,
+	information: #006bb2,
+	autofill: #e6f0f7,
+);
+
+/****************
+ * Effects
+ ****************/
+$effects: (
+	dropshadow: 0 0 10px rgba(0, 0, 0, 0.1),
+	cta: 0 -4px 4px rgba(0, 0, 0, 0.05),
+);
+
+/****************
+ * Grid Settings
+ ****************/
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: rem(576),
+	md: rem(768),
+	lg: rem(992),
+	xl: rem(1200),
+	xxl: rem(1410)
+);
+$custom-breakpoints: (
+	mobilemenu: rem(1200)
+);
+$container-max-widths: (
+	xs: rem(576),
+	sm: rem(768),
+	md: rem(992),
+	lg: rem(1200),
+	xl: rem(1410)
+);
+
+$container-sm-spacing: rem(20);
+$container-md-spacing: rem(40);
+$container-lg-spacing: rem(60);
+
+$grid-gutter-width: rem(30);
+
+// Transitions
+$transition-standard: all 0.2s linear;
+
+// Block title
+$block-title-mb-sm: rem(40);
+$block-title-mb-md: rem(64);
+
+$media-margin: 30px;
+$media-margin-mobile: 20px;
+
+// Outline
+$outline: rem(2) solid #7aacfe;

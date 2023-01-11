@@ -1,0 +1,120 @@
+/* stylelint-disable selector-max-compound-selectors */
+.c-btn {
+	cursor: pointer;
+	appearance: none;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.5;
+	display: inline-block;
+}
+
+.c-btn-primary,
+.c-btn-secondary {
+	border: 2px solid paint(accent);
+	border-radius: 4px;
+	padding: rem(14) rem(28);
+}
+
+.c-btn-primary {
+	background-color: paint(accent);
+	color: paint(text-light);
+
+	&:hover,
+	&:focus {
+		border-color: paint(accent-variant);
+		background-color: paint(accent-variant);
+		color: paint(text-light);
+	}
+}
+
+.c-btn-primary--small,
+.c-btn-secondary--small {
+	padding: rem(10) rem(20);
+	font-size: rem(14);
+	line-height: rem(16);
+}
+
+.c-btn-secondary {
+	border-color: paint(accent);
+	color: paint(accent);
+
+	&:hover,
+	&:focus {
+		background-color: paint(accent-variant);
+		border-color: paint(accent-variant);
+		color: paint(text-light);
+	}
+}
+
+.c-btn-tertiary {
+	color: paint(accent);
+	display: inline-flex;
+
+	&::after {
+		@include icon-font( $icon-arrow-right );
+		display: inline-block;
+		padding-left: rem(8);
+	}
+
+	&:hover,
+	&:focus {
+		color: paint(accent-variant);
+	}
+}
+
+@mixin button-margins() {
+	margin: rem(32) 0;
+	line-height: 1;
+
+	@include media-breakpoint-up(md) {
+		margin: rem(40) 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.c-btn-wrapper {
+	@include button-margins;
+}
+
+.c-btn-group {
+	@include button-margins;
+	font-size: 0; // Prevent spaces between buttons.
+
+	.c-btn-wrapper {
+		margin: 0;
+		display: inline-block;
+
+		&:not(:last-child) .c-btn {
+			margin-right: rem(20);
+
+			&.c-btn-tertiary {
+				margin-right: rem(24);
+			}
+		}
+	}
+}
+
+button:focus {
+	outline: none;
+}
+
+.play-btn {
+	width: rem(56);
+	height: rem(56);
+	background: paint(bg-light);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	border: none;
+
+	&::before {
+		@include icon-font( $icon-play );
+		color: paint(text-dark);
+	}
+}
+
+/* stylelint-enable selector-max-compound-selectors */

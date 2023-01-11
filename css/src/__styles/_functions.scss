@@ -1,0 +1,115 @@
+@use "sass:math";
+@use "sass:list";
+@use "sass:map";
+
+$rem-units-active: true;
+
+@function rem($values, $base: 16) {
+	$max: list.length($values);
+
+	@if $max == 1 {
+		@return convert-to-rem(list.nth($values, 1), $base);
+	}
+	$rem-values: ();
+
+	@for $i from 1 through $max {
+		$rem-values: list.append($rem-values, convert-to-rem(list.nth($values, $i), $base));
+	}
+
+	@return $rem-values;
+}
+
+@function strip-units( $number ) {
+	@return math.div($number,  $number * 0 + 1 );
+}
+
+@function convert-to-rem($value, $base: $rem-base) {
+	@if ($rem-units-active == false) {
+		$value: strip-unit($value) * rem(1);
+
+		@if ($value == rem(1)) {
+			$value: 0;
+		}
+
+		@return $value;
+	}
+
+	$value: math.div(strip-units($value), strip-units($base)) * 1rem;
+
+	@if ($value == 0) {
+		$value: 0;
+	}
+	// Turn 0rem into 0
+
+	@return $value;
+}
+
+@function responsive-values($min, $max, $smallest-breakpoint: "md", $largest-breakpoint: "xxl", $screen: "width") {
+	$max-unit: getunit($max);
+	$min-unit: getunit($max);
+	$viewport-unit: 100vw;
+
+	@if ($max-unit == "rem") {
+		$max: strip-units($max) * $rem-base;
+	}
+
+	@if ($min-unit == "rem") {
+		$min: strip-units($min) * $rem-base;
+	}
+
+	@if ($min == $max) {
+		@return rem($min);
+	}
+
+	@if ($screen == "height") {
+		$viewport-unit: 100vh;
+	}
+
+	$min-width: strip-units(map.get($grid-breakpoints, $smallest-breakpoint)) * 16;
+	$max-width: strip-units(map.get($grid-breakpoints, $largest-breakpoint)) * 16;
+
+	$slope: math.div($max - $min, $max-width - $min-width);
+	$y-axis-intersection: -$min-width * $slope + $min;
+
+	$preferred-size: #{rem($y-axis-intersection)} #{"+"} #{$slope * $viewport-unit};
+
+	@if ($y-axis-intersection == 0) {
+		$preferred-size: #{$slope #{"*"} $viewport-unit};
+	}
+
+	@if ($min > $max) {
+		$min-old: $min;
+		$max-old: $max;
+		$min: $max-old;
+		$max: $min-old;
+	}
+
+	$min: rem($min);
+	$max: rem($max);
+
+	@if ($min == 0) {
+		$min: 0;
+	}
+
+	@if ($max == 0) {
+		$max: 0;
+	}
+
+	@return clamp(#{$min}, #{$preferred-size}, #{$max});
+}
+
+@function paint($key) {
+	@if map.has-key($paints, $key) {
+		@return map.get($paints, $key);
+	} @else {
+		@error "ERROR: #{ $key } does not exist in paints.";
+	}
+}
+
+@function effect($key) {
+	@if map.has-key($effects, $key) {
+		@return map.get($effects, $key);
+	} @else {
+		@error "ERROR: #{ $key } does not exist in effects.";
+	}
+}

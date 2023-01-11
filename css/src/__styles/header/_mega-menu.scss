@@ -1,0 +1,102 @@
+/* Mega Menu */
+.mega-menu-wrapper {
+	position: absolute;
+	z-index: -999;
+	top: 100%;
+	left: 0;
+	visibility: hidden;
+	width: 100%;
+	padding-top: rem(33);
+	padding-bottom: rem(15);
+	border-top: 1px solid paint(neutral-88);
+	background: transparent;
+
+	li {
+		display: block;
+		padding: 0 0 rem(15) 0;
+
+		&.current-menu-item {
+			> a {
+				color: paint(accent);
+			}
+		}
+	}
+
+	a {
+		font-weight: 700;
+		visibility: hidden;
+		padding: 0;
+		transition: none;
+		transform: translateY(0.3125rem);
+		opacity: 0;
+		color: paint(text-dark);
+
+		&.active {
+			visibility: visible;
+			transition: all 0.3s;
+			opacity: 1;
+		}
+
+		&:hover {
+			transition: color 0.1s;
+			color: paint(text-dark);
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	blockquote {
+		visibility: hidden;
+		transition: none;
+		transform: translateY(0.3125rem);
+		opacity: 0;
+
+		&.active {
+			visibility: visible;
+			transition: all 0.3s;
+			opacity: 1;
+		}
+	}
+
+	&.active {
+		z-index: 999;
+		visibility: visible;
+
+		a {
+			transform: none;
+		}
+	}
+
+	.sub-menu {
+		margin: rem(20) 0 rem(15);
+
+		li {
+			padding-bottom: rem(15);
+			padding-left: 0;
+
+			&:last-child {
+				padding-bottom: 0;
+			}
+		}
+
+		a {
+			font-size: rem(14);
+			font-weight: 400;
+			line-height: 1.714286;
+		}
+	}
+}
+
+.mega-menu-background {
+	position: absolute;
+	z-index: 998;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background-color: paint(text-light);
+}

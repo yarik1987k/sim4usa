@@ -1,0 +1,52 @@
+/* Slider Global */
+.slick-arrow {
+	font-size: 0;
+	line-height: 0;
+	position: absolute;
+	top: 50%;
+	width: rem(56);
+	height: rem(56);
+	padding: 0;
+	cursor: pointer;
+	transform: translate(0, -50%);
+	border-radius: 50%;
+	background: paint(bg-light);
+	box-shadow: none;
+	z-index: 2;
+	border: none;
+	text-align: center;
+	transition: $transition-standard;
+
+	&:hover {
+		&::after {
+			color: paint(accent-variant);
+		}
+	}
+
+	&::after {
+		content: "";
+		line-height: rem(56);
+		color: paint(accent);
+		transition: $transition-standard;
+	}
+
+	&.slick-prev {
+		left: rem(30);
+
+		&::after {
+			@include icon-font( $icon-chev-left, 2.25rem );
+		}
+	}
+
+	&.slick-next {
+		right: rem(30);
+
+		&::after {
+			@include icon-font( $icon-chev-right, 2.25rem );
+		}
+	}
+}
+
+.slick-slide {
+	outline: none;
+}

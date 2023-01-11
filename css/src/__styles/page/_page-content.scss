@@ -1,0 +1,149 @@
+.page-content,
+.block-content-section,
+.single-post__content {
+	> *:not(section):not(.tribe-events):not(.wp-block-embed):not(.woocommerce) {
+		margin-left: auto !important;
+		margin-right: auto !important;
+
+		@include responsive-grid(12, 12, 10, 8, 8);
+	}
+
+	> * {
+		position: relative;
+	}
+
+	> .wp-block-embed {
+		margin-left: auto;
+		margin-right: auto;
+
+		@include responsive-grid();
+	}
+}
+
+.page-content,
+.block-content-section,
+.single-post__content,
+.block-editor-block-list__layout {
+	ul:not([class]),
+	ul.is-style-default,
+	ul.block-editor-block-list__block:not(.is-selected):not(.has-child-selected):not(.is-reusable),
+	ol {
+		padding-left: 20px;
+		margin-bottom: 24px;
+
+		@include media-breakpoint-up(md) {
+			margin-bottom: 32px;
+			padding-left: 30px;
+		}
+
+		ul,
+		ol {
+			margin-top: 16px;
+		}
+
+		li {
+			@include list( false );
+			margin-bottom: rem(8);
+
+			ul,
+			ol {
+				margin-top: rem(8);
+				margin-bottom: 0;
+
+				@include media-breakpoint-up(md) {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	ul:not([class]),
+	ul.is-style-default,
+	ul.block-editor-block-list__block:not(.is-selected):not(.has-child-selected):not(.is-reusable) {
+		li {
+			list-style-type: none;
+			position: relative;
+
+			&::before {
+				display: inline-block;
+				content: "•";
+				position: absolute;
+				top: 0;
+				left: -20px;
+
+				@include media-breakpoint-up(md) {
+					left: -25px;
+				}
+			}
+		}
+
+		ul {
+			padding-left: 0;
+
+			li {
+				&::before {
+					content: "– ";
+					display: inline;
+					position: static;
+					left: auto;
+					top: auto;
+				}
+			}
+		}
+	}
+
+	ul.is-style-check-icon {
+		> li {
+			position: relative;
+
+			&::before {
+				@include icon-font( $icon-check-circle );
+				font-size: inherit;
+				width: rem(17);
+				height: rem(17);
+				top: 0;
+				left: rem(-25);
+				transform: translateY(25%);
+
+				@include media-breakpoint-up(md) {
+					left: rem(-30);
+					top: rem(1);
+				}
+			}
+		}
+	}
+
+	ol {
+		list-style-type: none;
+		counter-reset: item;
+
+		li {
+			position: relative;
+
+			&::before {
+				content: counters(item, ".") ".";
+				counter-increment: item;
+				position: absolute;
+				top: 0;
+				left: -20px;
+
+				@include media-breakpoint-up(md) {
+					left: -28px;
+				}
+			}
+		}
+
+		ol {
+			padding-left: 0;
+
+			li {
+				&::before {
+					content: counters(item, ".") " ";
+					position: static;
+					top: auto;
+					left: auto;
+				}
+			}
+		}
+	}
+}
