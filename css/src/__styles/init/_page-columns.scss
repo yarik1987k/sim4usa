@@ -1,0 +1,9 @@
+.page-columns {
+	margin-top: rem(40);
+	margin-bottom: rem(40);
+
+	@include media-breakpoint-up(md) {
+		margin-top: rem(80);
+		margin-bottom: rem(80);
+	}
+}

@@ -1,0 +1,222 @@
+{
+
+	"theme_name": "sim4usa",
+
+	"acf_options": {
+		"init": true,
+		"page_title": "Theme Options",
+		"menu_title": "Theme Options",
+		"menu_slug": "theme-options",
+		"subpages": {
+			"general": {
+				"page_title": "Theme General Settings",
+				"menu_title": "General"
+			},
+			"header": {
+				"page_title": "Theme Header Settings",
+				"menu_title": "Header"
+			},
+			"footer": {
+				"page_title": "Theme Footer Settings",
+				"menu_title": "Footer"
+			},
+			"x404": {
+				"page_title": "404 Settings",
+				"menu_title": "404 Settings"
+			}
+		}
+	},
+
+	"enqueue_styles": {
+		"fonts": "//fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap",
+		"theme-styles": {
+			"src" : "css/dist/style.css",
+			"deps": [ ],
+			"version": "filemtime",
+			"media": "all"
+		}
+	},
+
+	"register_styles": {
+		"slick": "css/vendor/slick/slick.css"
+	},
+
+	"enqueue_scripts": {},
+
+	"register_scripts": {
+		"slick": "js/vendor/slick.min.js",
+		"add-to-any": "//static.addtoany.com/menu/page.js"
+	},
+
+	"enqueue_built_in_scripts": [
+
+	],
+
+	"register_nav_menus": {
+		"primary": "Main Navigation",
+		"mobile_primary": "Mobile - Main Navigation"
+	},
+
+	"theme_widgets_init": {
+		"Primary": {
+			"name": "Primary Widget Area",
+			"id": "primary_widget_area"
+		}
+	},
+
+	"enable_shortcodes_fix": false,
+
+	"enable_thumbnails": true,
+
+	"thumbnails": [
+		[
+			"thumbnail",
+			190,
+			104,
+			true
+		],
+		[
+			"medium",
+			410,
+			232,
+			true
+		],
+		[
+			"large",
+			1680,
+			1024,
+			false
+		],
+		[
+			"slider-image-hard",
+			1290,
+			728,
+			true
+		],
+		[
+			"slider-image-flexible",
+			9999,
+			480,
+			false
+		],
+		[
+			"main-logo",
+			200,
+			200,
+			false
+		],
+		[
+			"full-width-block",
+			900,
+			999,
+			false
+		],
+		[
+			"standard-width-block",
+			570,
+			999,
+			false
+		]
+	],
+	"mobile_breakpoint": 500,
+	"tablet_breakpoint": 1000,
+	"use_testimonal_post_type": true
+}
+
+/* ================================================================ */
+/* ========================= EXAMPLE CODE ========================= */
+/* ================================================================ */
+
+/*
+{
+
+	"theme_name" : "sim4usa",
+
+	"acf_options": {
+		"init": true,
+		"page_title": "Theme Options",
+		"menu_title": "Theme Options",
+		"menu_slug": "theme-options",
+		"subpages": {
+			"subpage_1": {
+				"page_title": "Theme General Settings",
+				"menu_title": "General"
+			},
+			"subpage_2": {
+				"page_title": "Theme Header Settings",
+				"menu_title": "Header"
+			},
+			"subpage_3": {
+				"page_title": "Theme Footer Settings",
+				"menu_title": "Footer"
+			},
+			"subpage_4": {
+				"page_title": "Additional Theme Options",
+				"menu_title": "Additional Theme Options",
+                "parent_slug": "custom-parent-slug",
+                "post_id": "custom-post-id"
+			}
+		}
+	},
+
+	"register_nav_menus" : {
+		"primary" : "Main Navigation"
+	},
+
+	"enqueue_styles": {
+		"style": {
+			"src" : "style.css",
+			"deps": [ ],
+			"version": "1.0",
+			"media": "all"
+		},
+
+		"simple": "css/dist/simple.css"
+	},
+
+	"enqueue_scripts": {
+		"script": {
+			"src" : "js/dist/script.js",
+			"deps": [ ],
+			"version": "1.0",
+			"in_footer": true
+		},
+
+		"simple": "js/dist/simple.js"
+	},
+
+	"enqueue_built_in_scripts": [
+		"jquery-ui-core", "iris", "underscore"
+	],
+
+	"theme_widgets_init" : {
+		"Primary" : {
+			"name" : "Primary Widget Area",
+			"id" : "primary_widget_area",
+			"before_widget" : "<div id='%1$s' class='widget %2$s'>",
+			"after_widget" : "</div>",
+			"before_title" : "<h3 class='widget-title'>",
+			"after_title" : "</h3>"
+		}
+	},
+
+	"enable_thumbnails" : true,
+
+	"thumbnails": [
+		[
+			"thumbnail-name-1",
+			800,
+			600,
+			["left", "top"]
+		],
+		[
+			"thumbnail-name-2",
+			400,
+			300,
+			true
+		]
+	]
+	"mobile_breakpoint": 500,
+	"tablet_breakpoint": 1000
+}
+*/

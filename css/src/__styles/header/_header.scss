@@ -1,0 +1,107 @@
+/* stylelint-disable max-nesting-depth */
+
+/* Main Header */
+.main-header {
+	position: relative;
+	z-index: 100;
+	margin-bottom: rem(80);
+	background-color: paint(accent);
+	@include media-breakpoint-up(md) {
+		margin-bottom: rem(160);
+	}
+
+	&__left {
+		display: flex;
+		align-items: center;
+	}
+
+	&__logo {
+		display: block;
+		max-width: rem(145);
+		margin-right: rem(190);
+	}
+
+	&__wrapper {
+		width: 100%;
+		max-width: rem(1319);
+		margin: 0 auto;
+		padding: 0 rem(15);
+		display: flex;
+		justify-content: space-between;
+		min-height: rem(100);
+	}
+
+	&__nav {
+		position: static;
+		display: none;
+
+		@include media-breakpoint-up( mobileMenu, $custom-breakpoints ) {
+			display: block;
+		}
+
+		a {
+			font-size: rem(16);
+			line-height: rem(24);
+			font-weight: 500;
+		}
+
+		.highlight-text {
+			padding: 0;
+		}
+
+		> .menu {
+			> li {
+				margin-right: rem(35);
+				padding: rem(20) 0;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				> a {
+					display: flex;
+				}
+
+				&.menu-item-object-ccs_custom_menu_item,
+				&.menu-item-has-children {
+					a::after {
+						@include icon-font( $icon-chev-expand );
+						display: inline-block;
+						padding-left: rem(4);
+					}
+				}
+			}
+		}
+
+		// TODO: display submenus properly
+		.sub-menu {
+			display: none;
+		}
+	}
+
+	&__right {
+		text-align: right;
+		display: none;
+
+		@include media-breakpoint-up( mobileMenu, $custom-breakpoints ) {
+			display: flex;
+			align-items: center;
+		}
+
+		.c-btn + .c-btn {
+			margin-left: rem(11.5);
+		}
+	}
+}
+
+.page-has-hero {
+	.main-header {
+		position: absolute;
+		top: var(--alert-bar-height);
+		left: 0;
+		width: 100%;
+		margin-bottom: 0;
+	}
+}
+
+/* stylelint-enable max-nesting-depth */
