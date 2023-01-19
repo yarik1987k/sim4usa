@@ -15,3 +15,6 @@ add_action( 'after_setup_theme', 'remove_wc_gallery_lightbox', 100 );
 function remove_wc_gallery_lightbox() {
 remove_theme_support( 'wc-product-gallery-lightbox' );
 }
+
+ 
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 30 ); 
