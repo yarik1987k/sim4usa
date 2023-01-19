@@ -49,7 +49,7 @@ $tags = get_tags();
 		<footer class="post-single__footer">
 			<div class="container">
 				<div class="row">
-					<div class="col-12 col-md-5 offset-md-1 col-lg-4 offset-lg-2">
+					<div class="col-12 col-md-6">
 						<?php if ( ! empty( $tags ) ) : ?>
 							<div class="post-single__tags">
 								<div class="post-single__tags-title overline">Tags</div>
@@ -61,7 +61,7 @@ $tags = get_tags();
 							</div>
 						<?php endif; ?>
 					</div>
-					<div class="col-12 col-md-5 col-lg-4">
+					<div class="col-12 col-md-6">
 						<?php get_theme_part( 'global/share-icons' ); ?>
 					</div>
 				</div>
