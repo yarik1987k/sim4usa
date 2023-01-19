@@ -36,7 +36,7 @@ if ( is_array( $manual ) && count( $manual ) ) {
 	}
 
 	$related_posts = get_posts( $args );
-	print_r($related_posts);
+	 
 }
 
 if ( ! empty( $related_posts ) ) :
