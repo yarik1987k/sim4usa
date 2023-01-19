@@ -1,6 +1,9 @@
 .woocommerce{
     display: flex;
     flex-direction: column;
+    p.price{
+        display: none !important;
+    }
     div.product form.cart .button{
         cursor: pointer;
         appearance: none;
@@ -38,6 +41,15 @@
                 margin-bottom: 0;
                 &_link{
                     display: none !important;
+                }
+            }
+            &_optional_checkbox{
+                cursor: pointer;
+                br{
+                    display: none !important;
+                }
+                .price{
+                    color: paint(accent-variant);
                 }
             }
         }
