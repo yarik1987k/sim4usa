@@ -30,10 +30,7 @@ if ( $product->is_in_stock() ) : ?>
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?> 
 	<form class="cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
 		<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
-		<input type="hidden" name="product-price" class="product-price-field" value="<?php echo $product->get_price();?>" />
-		<?php
-		do_action( 'woocommerce_before_add_to_cart_quantity' );
-
+		<input type="hidden" name="product-price" class="product-price-field" value="<?php echo $product->get_price();?>" /><?php do_action( 'woocommerce_before_add_to_cart_quantity' );
 		woocommerce_quantity_input(
 			array(
 				'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),

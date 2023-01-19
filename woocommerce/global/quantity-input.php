@@ -27,8 +27,7 @@ if ( $max_value && $min_value === $max_value ) {
 } else {
 	$is_readonly = false;
 }
-?>
-<div class="quantity">
+?><div class="quantity">
 	
 	<?php
 	/**
@@ -38,7 +37,7 @@ if ( $max_value && $min_value === $max_value ) {
 	 */
 	do_action( 'woocommerce_before_quantity_input_field' );
 	?><label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_attr( $label ); ?></label>
-	<button class="qty-btn qty-btn__add">+</button><input
+	<input
 		type="<?php echo $is_readonly ? 'text' : 'number'; ?>"
 		<?php wp_readonly( $is_readonly ); ?>
 		id="<?php echo esc_attr( $input_id ); ?>"
@@ -55,7 +54,7 @@ if ( $max_value && $min_value === $max_value ) {
 			inputmode="<?php echo esc_attr( $inputmode ); ?>"
 			autocomplete="<?php echo esc_attr( isset( $autocomplete ) ? $autocomplete : 'on' ); ?>"
 		<?php endif; ?>
-	/><button class="qty-btn qty-btn__remove">-</button><?php
+	/><?php
 	/**
 	 * Hook to output something after quantity input field
 	 *
