@@ -56,10 +56,13 @@
                 br{
                     display: none !important;
                 }
-                .price{
-                    color: paint(accent-variant);
-                    display: block !important;
-                }
+               
+            }
+        }
+        .bundle_price{
+            .price{
+                color: paint(accent-variant);
+                display: block !important;
             }
         }
 
