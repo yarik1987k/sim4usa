@@ -1,6 +1,10 @@
 .woocommerce{
     display: flex;
     flex-direction: column;
+
+    figure{
+        pointer-events: none;
+    }
     p.price{
         display: none !important;
     }
