@@ -83,5 +83,15 @@
         }
     }
     
-
+.woocommerce-tabs{
+    .tabs{
+        li{
+            a{
+                br{
+                    display: none !important;
+                }
+            }
+        }
+    }
+}
 }
