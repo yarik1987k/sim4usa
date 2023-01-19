@@ -33,6 +33,8 @@
         }
 
         .bundled_product{
+            display: flex;
+            align-items: center;
             p{
                 margin: 0 !important;
                 padding: 0 !important; 
@@ -51,6 +53,16 @@
                 .price{
                     color: paint(accent-variant);
                 }
+            }
+        }
+
+        .wcpa_form_outer{
+            input{
+                background: rgba(224, 224, 224, 0.3);
+                border: 1px solid rgba(79, 79, 79, 0.1);
+                border-radius: 4px;
+                height:rem(50);
+                padding: rem(15);
             }
         }
     }
