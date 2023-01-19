@@ -6,3 +6,12 @@ function small_cart(){
 }
 
 add_filter( 'woocommerce_single_product_zoom_enabled', '__return_false' );
+add_action( 'wp', 'custom_remove_product_zoom' );
+
+function custom_remove_product_zoom() {
+  remove_theme_support( 'wc-product-gallery-zoom' );
+}
+add_action( 'after_setup_theme', 'remove_wc_gallery_lightbox', 100 );
+function remove_wc_gallery_lightbox() {
+remove_theme_support( 'wc-product-gallery-lightbox' );
+}

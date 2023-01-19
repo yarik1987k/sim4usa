@@ -18,6 +18,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+$related_products = false;
 
 if ( $related_products ) : ?>
 
