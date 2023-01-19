@@ -19,7 +19,7 @@ function load_scripts() {
 
 	// This can fail due to permissions so we will still try to include the file if it fails.
 	$version = file_exists( $script_path ) ? filemtime( $script_path ) : '1.0';
-
+	 
 	wp_enqueue_script( 'script', $script_url, array(), $version, true );
 }
 add_action( 'wp_enqueue_scripts', 'load_scripts' );

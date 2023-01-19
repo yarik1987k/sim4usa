@@ -6,13 +6,46 @@
 	font-size: 1rem;
 	line-height: 1.5;
 	display: inline-block;
+	
+	&--icon{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		.icon{
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+.c-btn-rounded{
+	width: rem(38);
+	height: rem(38);
+	background-color: paint(accent-variant);
+	border-radius: 100%;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	line-height: initial;
+	box-shadow: effect(yellowshadow);
+
+	span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&:hover,
+	&:focus {
+		color: paint(text-light);
+	}
 }
 
 .c-btn-primary,
 .c-btn-secondary {
 	border: 2px solid paint(accent);
-	border-radius: 4px;
-	padding: rem(14) rem(28);
+	border-radius: 16px;
+	padding: rem(15) rem(60);
 }
 
 .c-btn-primary {
@@ -24,6 +57,35 @@
 		border-color: paint(accent-variant);
 		background-color: paint(accent-variant);
 		color: paint(text-light);
+	}
+
+	&--icon {
+		box-shadow: effect(heroshadow);
+		border-radius: rem(52);
+		padding: rem(8) rem(10) rem(8) rem(30);
+		color: paint(gray-1);
+		background: paint(bg-light);
+		border:none;
+		.icon {
+			width: 52px;
+			height: 52px;
+			border-radius: 100%;
+			background: paint(accent-variant);
+			display: flex;
+			margin-left: rem(31);
+		}
+	}
+
+	&--white{
+		background-color: paint(bg-light);
+		border-color: paint(bg-light);
+		color: paint(text-dark);
+
+		&:hover{
+			background-color: paint(accent);
+			border-color: paint(accent);
+			color: paint(text-dark);
+		}
 	}
 }
 

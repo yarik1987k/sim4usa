@@ -8,7 +8,7 @@
 	right: rem(15);
 	display: block;
 
-	@include media-breakpoint-up( mobileMenu, $custom-breakpoints ) {
+	@include media-breakpoint-up(lg) {
 		display: none;
 	}
 	width: rem(25);
@@ -193,12 +193,12 @@
 			left: 0;
 			width: 100%;
 			display: none;
-			background: $body-color;
+			background: paint(bg-light);
 
 			&.active {
 				display: block;
 
-				@include media-breakpoint-up( mobileMenu, $custom-breakpoints ) {
+				@include media-breakpoint-up(xl ) {
 					display: none;
 				}
 			}
@@ -213,6 +213,22 @@
 				font-size: rem(12);
 				line-height: rem(15);
 				width: 100%;
+			}
+			.mobile-cta{
+				display: flex;
+    			justify-content: center;
+				padding-bottom: rem(30);
+				.c-btn-rounded {
+					width: 2.375rem;
+					height: 2.375rem;
+					background-color: #F5B318;
+					border-radius: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					line-height: initial;
+					box-shadow: 0px 4px 8px rgb(245 179 24 / 46%);
+				}
 			}
 		}
 	}
@@ -255,6 +271,8 @@
 		@include media-breakpoint-down(sm) {
 			padding: 0;
 		}
+
+		
 	}
 }
 

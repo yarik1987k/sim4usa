@@ -4,13 +4,13 @@
 	font-family: iconfont-sim4usa;
 	font-style: normal;
 	font-weight: 400;
-	src: url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.eot?obz5wp);
+	src: url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.eot?mwtch);
 	src:
-		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.eot?obz5wp#iefix) format("eot"),
-		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.woff2?obz5wp) format("woff2"),
-		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.woff?obz5wp) format("woff"),
-		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.ttf?obz5wp) format("truetype"),
-		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.svg?obz5wp#iconfont-sim4usa) format("svg");
+		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.eot?mwtch#iefix) format("eot"),
+		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.woff2?mwtch) format("woff2"),
+		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.woff?mwtch) format("woff"),
+		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.ttf?mwtch) format("truetype"),
+		url(../../fonts/iconfont-sim4usa/iconfont-sim4usa.svg?mwtch#iconfont-sim4usa) format("svg");
 }
 
 [class^="icon-"]::before,
@@ -67,122 +67,142 @@
 	content: "\EA0A";
 }
 
-.icon-check::before {
+.icon-check-list::before {
 	content: "\EA0B";
 }
 
-.icon-chev-collapse::before {
+.icon-check::before {
 	content: "\EA0C";
 }
 
-.icon-chev-expand::before {
+.icon-checkmark::before {
 	content: "\EA0D";
 }
 
-.icon-chev-left::before {
+.icon-chev-collapse::before {
 	content: "\EA0E";
 }
 
-.icon-chev-right::before {
+.icon-chev-expand::before {
 	content: "\EA0F";
 }
 
-.icon-clear::before {
+.icon-chev-left::before {
 	content: "\EA10";
 }
 
-.icon-close::before {
+.icon-chev-right::before {
 	content: "\EA11";
 }
 
-.icon-cursor::before {
+.icon-clear::before {
 	content: "\EA12";
 }
 
-.icon-drop-down::before {
+.icon-close::before {
 	content: "\EA13";
 }
 
-.icon-drop-up::before {
+.icon-cursor::before {
 	content: "\EA14";
 }
 
-.icon-email::before {
+.icon-drop-down::before {
 	content: "\EA15";
 }
 
-.icon-error::before {
+.icon-drop-up::before {
 	content: "\EA16";
 }
 
-.icon-filter-list::before {
+.icon-email::before {
 	content: "\EA17";
 }
 
-.icon-image::before {
+.icon-error::before {
 	content: "\EA18";
 }
 
-.icon-launch-external::before {
+.icon-filter-list::before {
 	content: "\EA19";
 }
 
-.icon-link::before {
+.icon-image::before {
 	content: "\EA1A";
 }
 
-.icon-menu::before {
+.icon-launch-external::before {
 	content: "\EA1B";
 }
 
-.icon-pdf::before {
+.icon-link::before {
 	content: "\EA1C";
 }
 
-.icon-phone::before {
+.icon-list::before {
 	content: "\EA1D";
 }
 
-.icon-play::before {
+.icon-map-marker::before {
 	content: "\EA1E";
 }
 
-.icon-quote::before {
+.icon-menu::before {
 	content: "\EA1F";
 }
 
-.icon-radio-button-checked::before {
+.icon-pdf::before {
 	content: "\EA20";
 }
 
-.icon-radio-button-unchecked::before {
+.icon-phone::before {
 	content: "\EA21";
 }
 
-.icon-search::before {
+.icon-play::before {
 	content: "\EA22";
 }
 
-.icon-social-facebook::before {
+.icon-quote::before {
 	content: "\EA23";
 }
 
-.icon-social-instagram::before {
+.icon-radio-button-checked::before {
 	content: "\EA24";
 }
 
-.icon-social-linkedin::before {
+.icon-radio-button-unchecked::before {
 	content: "\EA25";
 }
 
-.icon-social-twitter::before {
+.icon-search::before {
 	content: "\EA26";
 }
 
-.icon-social-youtube::before {
+.icon-social-facebook::before {
 	content: "\EA27";
 }
 
-.icon-upload::before {
+.icon-social-instagram::before {
 	content: "\EA28";
+}
+
+.icon-social-linkedin::before {
+	content: "\EA29";
+}
+
+.icon-social-twitter::before {
+	content: "\EA2A";
+}
+
+.icon-social-youtube::before {
+	content: "\EA2B";
+}
+
+.icon-star::before {
+	content: "\EA2C";
+}
+
+.icon-upload::before {
+	content: "\EA2D";
 }

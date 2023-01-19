@@ -1,0 +1,32 @@
+@import "../../../css/src/lib/base-includes";
+
+.block-hero{
+	background: paint(accent);
+	margin-top:0;
+	padding-top: responsive-values(60, 80);
+	padding-bottom: responsive-values(60, 120);
+	h1{
+		font-weight: 800;
+		font-size: responsive-values(34, 50);
+		line-height: responsive-values(40, 50);
+		color: paint(text-dark);
+		margin-top:0;
+		margin-bottom: responsive-values(16, 32);
+		text-transform: uppercase;
+	}
+	h2{
+		font-weight: 500;
+		font-size: responsive-values(24, 42);
+		line-height: responsive-values(32, 48);
+		color: paint(gray-3); 
+		margin-top:0;
+		margin-bottom: responsive-values(16, 48);
+	}
+
+	&__img{
+		margin-top: rem(80);
+		@include media-breakpoint-up(lg){
+			margin-top: 0;
+		}
+	}
+}

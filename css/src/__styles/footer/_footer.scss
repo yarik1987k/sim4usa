@@ -1,3 +1,122 @@
 .main-footer {
+    background: paint(bg-dark);
+    padding: rem(70) 0;
+    margin-top: rem(70);
+    &__logo{
+        max-width: rem(200);
+        margin-bottom: rem(30);
+    }
+    &__content{
+        color: paint(text-light);
+        font-weight: 400;
+        font-size: rem(16);
+        line-height: rem(24);
+        max-width: rem(280);
+    }
+    &__bottom{
+        border-top: 1px solid paint(bg-light);
+        padding-top: rem(40);
+        margin-top: rem(71);
+        p{
+            color: paint(gray-4);
+            font-weight: 400;
+            font-size: rem(14);
+            line-height: rem(20);
+        }
+    }
+    .single-widget{
+        margin: rem(20) 0;
+        @include media-breakpoint-up(lg){
+            margin: 0;
+        }
+        h3{
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 36px;
+            color: paint(text-light);
+            margin-bottom: rem(20);
+        }
+        .menu{
+            padding:0;
+            margin:0;
+            list-style:none;
+            li{
+                margin-bottom: rem(14);
+                a{
+                    color: paint(text-light);
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+                .sub-menu{
+                    padding:0;
+                    margin:0;
+                    list-style:none;
+                    li{
+                        margin-bottom: rem(14);
+                    }
+                    a{
+                        color: paint(text-light);
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 24px;
+                    }
+                }
+            }
+        }
+    }
+    .newsletter{
+        position: relative;
+        display: flex;
+        max-width: rem(253);
+        padding: 8px 8px 8px 26px;
+        border: 2px solid #E6E8EC;
+        border-radius: 30px;
+        margin-top: rem(30);
+        
+        .input{
+            input{
+                background: transparent;
+                border: none;
+                color: paint(gray-4);
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 24px;
+                max-width: rem(180);
+                &::placeholder{
+                    color: paint(gray-4);
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+        }
+        .button{
+            span{
 
+                position: relative;
+                width: 33px;
+                height: 33px;
+                border-radius: 100%;
+                &.wpcf7-spinner{
+                    position: absolute;
+                }
+                &:before{
+                    position: absolute;
+                    top: 0;
+                    left:4px;
+                    pointer-events: none;
+                }
+                input{
+                    text-indent: -9999px;
+                    overflow: hidden;
+                    width: 33px;
+                    height: 33px;
+                    border-radius: 100%;
+                    background-color: paint(accent-variant);
+                    border:none;
+                }
+            }
+        }
+    }
 }

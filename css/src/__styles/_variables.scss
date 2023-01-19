@@ -7,18 +7,25 @@ $font-base:'Inter', sans-serif;
  * Paints
  ****************/
 $paints: (
-	accent: #FFEDC5,
+	accent: #ffeabd,
 	accent-variant: #F5B318,
 	bg-dark: #23262C,
 	bg-light: #fff,
 	text-dark: #333333,
 	text-light: #fff,
+	blue-text: #2F258B,
 	neutral-30: #4c4c4c,
 	neutral-45: #737373,
 	neutral-70: #b3b3b3,
 	neutral-88: #e1e1e1,
 	neutral-94: #f0f0f0,
 	neutral-97: #f7f7f7,
+	gray-1: #23262F,
+	gray-2:#E0E0E0,
+	gray-3:#777E91,
+	gray-4: #B1B5C4,
+	gray-dark: #3D3D3D,
+	green-light:#96FF4D,
 	error: #b00020,
 	warning: #f9a513,
 	success: #008737,
@@ -32,6 +39,8 @@ $paints: (
 $effects: (
 	dropshadow: 0 0 10px rgba(0, 0, 0, 0.1),
 	cta: 0 -4px 4px rgba(0, 0, 0, 0.05),
+	yellowshadow: 0px 4px 8px rgba(245, 179, 24, 0.46),
+	heroshadow: -16px 22px 42px rgba(0, 31, 77, 0.12)
 );
 
 /****************

@@ -25,7 +25,6 @@ $categories = array_reduce(
 
 $tags = get_tags();
 ?>
-
 	<article class="post-single">
 		<div class="post-single__top">
 			<div class="container">
@@ -76,8 +75,7 @@ $tags = get_tags();
 			</div>
 		</footer>
 	</article>
-
-	<?php get_theme_part( 'page/block-related-posts', array( 'title' => 'Related Posts' ) ); ?>
-
+ 
 <?php
+//get_theme_part( 'page/block-related-posts', array( 'title' => 'Related Posts' ) );
 get_footer();

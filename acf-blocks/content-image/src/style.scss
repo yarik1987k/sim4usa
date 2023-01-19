@@ -1,6 +1,6 @@
 @import "../../../css/src/lib/base-includes";
 
-.block-content-image {
+.block-content-image { 
 	h3 {
 		@include media-breakpoint-down(sm) {
 			font-size: 1.5rem;
@@ -18,7 +18,7 @@
 		.b-content-images__content-wrapper {
 			max-width: rem(353);
 
-			@include media-breakpoint-down(md) {
+			@include media-breakpoint-up(md) {
 				max-width: rem(500);
 			}
 
@@ -31,13 +31,35 @@
 
 .b-content-images {
 	&__content-wrapper {
+		ul{
+			li{
+				position: relative;
+				&::before{
+					@include icon-font($icon-check-list);  
+					font-size: 16px;
+    				z-index: 1;
+					color: paint(blue-text);
+				}
+				&::after{
+					content: "";
+					display: block;
+					width: 19px;
+					height: 19px;
+					background: paint(accent-variant);
+					border-radius: 100%;
+					position: absolute;
+					left: -30px;
+					top: 2px;
+				}
+			}
+		}
 		max-width: rem(370);
 		margin: 0 auto;
 		// padding: rem( 20 ) 0;
-		position: relative;
+		position: relative; 
 		left: rem(30);
 
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-up(md) {
 			max-width: rem(500);
 			margin: 0 auto;
 			// padding: rem( 146 ) 0 rem( 175 );
@@ -99,7 +121,7 @@
 				margin: 0 auto;
 				left: rem(-30);
 
-				@include media-breakpoint-down(md) {
+				@include media-breakpoint-up(md) {
 					left: auto;
 					margin: 0 auto;
 				}

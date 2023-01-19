@@ -1,0 +1,101 @@
+@import "../../../css/src/lib/base-includes";
+
+.block-contact-us{
+	.contact-info{
+		.lead{
+			margin:0;
+			padding:0;
+			font-style: normal;
+			font-weight: 400;
+			font-size: rem(14);
+			line-height: rem(13);
+			color: paint(accent-variant);
+			text-transform: uppercase;
+			margin-bottom: rem(8);
+		}
+		.h2{
+			margin:0;
+			padding:0;
+			font-style: normal;
+			font-weight: 700;
+			font-size: rem(30);
+			line-height: rem(33);
+			letter-spacing: 2px;
+			margin-bottom: rem(20);
+		}
+		.text{
+			p{
+				font-weight: 400;
+				font-size: rem(14);
+				line-height: rem(21);
+			}
+		}
+	}
+	.contact-items{
+		margin-top: rem(50);
+		ul{
+			margin:0;
+			padding:0;
+			li{
+				display: flex;
+				align-items: center;
+				margin-bottom: rem(24);
+				i{
+					width: rem(35);
+					height: rem(35);
+					background: rgba(245, 179, 24, 0.1);
+					border-radius: 5px;
+					color: paint(accent-variant);
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					margin-right: rem(15);
+				}
+				a{
+					font-weight: 400;
+					font-size: rem(13);
+					line-height: rem(21);
+					margin:0;
+					padding:0;
+					color: paint(text-dark);
+				}
+			}
+		}
+	}
+	.form{
+		overflow: hidden;
+		p{
+			label{
+				width:100%;
+				font-weight: 400;
+				font-size: 14px;
+				line-height: 21px;
+				margin-bottom: rem(30);
+			}
+		}
+		input,
+		textarea{
+			width:100%;
+			background: rgba(224, 224, 224, 0.3);
+			border: 1px solid rgba(79, 79, 79, 0.1);
+			border-radius: 4px;
+			height:rem(50);
+			padding: rem(15);
+			margin-top:10px;
+			
+		}
+		textarea{
+			min-height: 122px;
+		}
+		.c-btn{
+			background: paint(accent-variant);
+			width: initial;
+			color: paint(text-light);
+			font-weight: 500;
+			font-size: rem(14);
+			line-height: rem(20);
+			text-transform: uppercase;
+			padding: rem(15) rem(45);
+		}
+	}
+}

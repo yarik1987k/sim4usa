@@ -7,8 +7,9 @@ import smoothScroll from '../__utils/smoothScroll';
 import Tables from '../__utils/tables';
 import Forms from '../__utils/forms';
 import vhUnit from '../__utils/vhUnit';
-import AlertBar from '../__header/AlertBar';
-
+import AlertBar from '../__header/AlertBar'; 
+import miniCart from '../__woo/miniCart';
+import qtyBtns from '../__woo/qtyBtns'; 
 const headerMobile = new MobileHeader();
 
 // GLOBAL APP CONTROLLER
@@ -23,12 +24,15 @@ const controller = {
 		smoothScroll();
 		Tables.init();
 		vhUnit();
-		AlertBar();
+		AlertBar(); 
+		//miniCart.init();
+		//qtyBtns.init();
 	},
 	loaded() {
 		document.querySelector('body').classList.add('page-has-loaded');
 		Forms();
 		vhUnit();
+		
 	},
 	resized() {
 		headerMobile.resized();

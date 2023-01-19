@@ -33,8 +33,26 @@ class Slider {
 }
 
 const SimpleSlider = new Slider('.gallery-slider__slider');
-const TestimonialSlider = new Slider('.testimonial-slider');
-const FluidSlider = new Slider('.gallery-slider__slider-fluid', {
+const SimpleSliderCards = new Slider('.cards-slider', {
+	centerMode: false,
+	variableWidth: false,
+	slidesToShow: 3,
+	slidesToScroll: 3,
+	dots:true,
+	responsive: [
+		{
+			breakpoint: 1290,
+			settings: {
+				centerMode: false,
+				variableWidth: false,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+			},
+		},
+	],
+}); 
+const TestimonialSlider = new Slider('.testimonial-slider'); 
+const FluidSlider = new Slider('.gallery-slider__slider-fluid', { 
 	centerMode: true,
 	variableWidth: true,
 	responsive: [
@@ -47,4 +65,4 @@ const FluidSlider = new Slider('.gallery-slider__slider-fluid', {
 		},
 	],
 });
-export { SimpleSlider, TestimonialSlider, FluidSlider };
+export { SimpleSlider, TestimonialSlider, FluidSlider, SimpleSliderCards };

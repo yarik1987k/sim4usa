@@ -84,3 +84,5 @@ function gallery() {
 	);
 }
 add_action( 'init', 'BaseTheme\PostTypes\gallery' );
+
+ 

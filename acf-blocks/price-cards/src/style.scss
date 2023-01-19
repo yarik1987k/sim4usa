@@ -1,0 +1,144 @@
+@import "../../../css/src/lib/base-includes";
+
+.block-price-cards{
+	.slick-list{
+		padding: rem(30) 0;
+	}
+	.slick-arrow{
+		background-color: paint(accent-variant);
+		&.slick-prev{
+			left:0;
+			@include media-breakpoint-up(md){
+				left:rem(-25);
+			}
+			@include media-breakpoint-up(xl){
+				left: rem(-100);
+			}
+		}
+		&.slick-next{
+			right:0;
+			@include media-breakpoint-up(md){
+				right:rem(-25);
+			}
+			@include media-breakpoint-up(xl){
+				right: rem(-100);
+			}
+		}
+	}
+	 
+	.slick-dots{
+		list-style: none;
+		padding:0;
+		margin: 0;
+		display: flex;
+    	justify-content: center;
+		li{
+			display: inline-block;
+			max-width: rem(24);
+			width:100%;
+			margin-right: rem(10);
+			button{
+				width:100%;
+				height: rem(10);
+				background-color: paint(gray-2);
+				border-radius: rem(32);
+				border: none;
+				text-indent: -999px;
+				overflow: hidden;
+				transition: all ease-in-out 0.3s;
+			}
+			&.slick-active{
+				max-width: rem(56);
+				button{ 
+					background-color: paint(accent-variant);
+					transition: all ease-in-out 0.3s;
+				}
+			}
+		}
+	}
+	.single-card{
+			background: paint(bg-light);
+			box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+			border-radius: 18px;
+			padding: rem(30) rem(25);
+
+		&__price{
+			color: paint(accent-variant);
+			font-weight: 600;
+			font-size: rem(57);
+			line-height: rem(56);
+			text-align: center;
+		}
+
+		&__title{
+			text-align: center;
+			font-weight: 400;
+			font-size: rem(20);
+			line-height: rem(28);
+			color: paint(gray-dark);
+			text-transform: uppercase;
+			padding-top: rem(14);
+			padding-bottom: rem(25);
+		}
+
+		&__bullets{
+
+			ul{
+				list-style: none;
+				padding:0;
+				margin:0;
+
+				li{
+					position: relative;
+					padding:0;
+					display: flex;
+					align-items: start;
+					font-weight: 400;
+					font-size: rem(18);
+					line-height: rem(28);
+					color: paint(gray-dark);
+					margin-bottom: rem(16);
+					&::before{
+						display: none;
+					}
+					span{
+						color: paint(green-light);
+						height: rem(20);
+						position: relative;
+						display: inline-flex;
+						transform: rotate(90deg);
+						margin-top: 4px;
+
+						&::before{
+							position: absolute;
+							top: 50%;
+							right: 12px;
+							transform: translateY(-36%);
+							z-index: 1;
+							content: '';
+						}
+						&::after{
+							display: inline-block;
+							margin-left: 3px; 
+							border: solid 10px transparent;
+							border-top-width: 0;
+							border-bottom-width: 10px;
+							border-bottom-color: paint(green-light);
+							clip-path: circle(54% at 50% 69%);
+							vertical-align: bottom;
+							content: '';
+						}
+					}
+				}
+			}
+		}
+		&__cta{
+			text-align: center;
+			margin-top:rem(90);
+			.c-btn{
+				background-color: paint(accent-variant);
+				border-color: paint(accent-variant);
+			}
+		}
+	}
+}

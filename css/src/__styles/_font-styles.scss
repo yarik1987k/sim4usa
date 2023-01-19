@@ -1,7 +1,7 @@
 //This file is only for mixins. Don't include any styles in this file or else they will repeated in every block.
 
 @mixin h1( $margins: true ) {
-	font-weight: 600;
+	font-weight: 700;
 	font-size: responsive-values(34, 60);
 	line-height: responsive-values(40, 64);
 
@@ -66,7 +66,8 @@
 }
 
 @mixin body-1( $margins: true ) {
-	font-size: responsive-values(16, 20);
+	font-weight: 400;
+	font-size: responsive-values(16, 18);
 	line-height: responsive-values(20, 32);
 
 	@if ( $margins ) {

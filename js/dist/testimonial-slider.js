@@ -781,6 +781,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "FluidSlider": () => (/* binding */ FluidSlider),
 /* harmony export */   "SimpleSlider": () => (/* binding */ SimpleSlider),
+/* harmony export */   "SimpleSliderCards": () => (/* binding */ SimpleSliderCards),
 /* harmony export */   "TestimonialSlider": () => (/* binding */ TestimonialSlider)
 /* harmony export */ });
 const $ = jQuery.noConflict();
@@ -818,8 +819,26 @@ class Slider {
 }
 
 const SimpleSlider = new Slider('.gallery-slider__slider');
-const TestimonialSlider = new Slider('.testimonial-slider');
-const FluidSlider = new Slider('.gallery-slider__slider-fluid', {
+const SimpleSliderCards = new Slider('.cards-slider', {
+	centerMode: false,
+	variableWidth: false,
+	slidesToShow: 3,
+	slidesToScroll: 3,
+	dots:true,
+	responsive: [
+		{
+			breakpoint: 1290,
+			settings: {
+				centerMode: false,
+				variableWidth: false,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+			},
+		},
+	],
+}); 
+const TestimonialSlider = new Slider('.testimonial-slider'); 
+const FluidSlider = new Slider('.gallery-slider__slider-fluid', { 
 	centerMode: true,
 	variableWidth: true,
 	responsive: [

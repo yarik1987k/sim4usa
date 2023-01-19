@@ -4,21 +4,24 @@
 .main-header {
 	position: relative;
 	z-index: 100;
-	margin-bottom: rem(80);
+	//margin-bottom: rem(80);
 	background-color: paint(accent);
 	@include media-breakpoint-up(md) {
-		margin-bottom: rem(160);
+		//margin-bottom: rem(160);
 	}
 
 	&__left {
 		display: flex;
-		align-items: center;
+		align-items: center; 
 	}
 
 	&__logo {
 		display: block;
 		max-width: rem(145);
-		margin-right: rem(190);
+		
+		@include media-breakpoint-up(xl){
+			margin-right: rem(190);
+		}
 	}
 
 	&__wrapper {
@@ -35,7 +38,7 @@
 		position: static;
 		display: none;
 
-		@include media-breakpoint-up( mobileMenu, $custom-breakpoints ) {
+		@include media-breakpoint-up(lg) {
 			display: block;
 		}
 
@@ -83,13 +86,31 @@
 		text-align: right;
 		display: none;
 
-		@include media-breakpoint-up( mobileMenu, $custom-breakpoints ) {
+		@include media-breakpoint-up(lg) {
 			display: flex;
 			align-items: center;
 		}
 
 		.c-btn + .c-btn {
 			margin-left: rem(11.5);
+		}
+	}
+
+	.mini-cart-button{
+		background: transparent;
+		display: flex;
+		align-items: center;
+		padding: 0;
+		border: none;
+		margin-left: rem(22);
+		&__count-price{
+
+		}
+		.icon-cart{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-left: rem(10);
 		}
 	}
 }

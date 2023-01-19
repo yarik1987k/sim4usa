@@ -1,0 +1,36 @@
+@import "../../../css/src/lib/base-includes";
+
+.block-grid-columns-icon-content {
+	// margin-bottom: rem( 80 - 40 );
+
+	// @include media-breakpoint-up(md) {
+	// 	margin-bottom: rem( 160 - 40 );
+	// }
+}
+
+.grid-columns {
+	&__column {
+		// margin-bottom: rem( 40 );
+		margin-bottom: rem(40);
+		@include media-breakpoint-up(lg){
+			margin-bottom: 0;
+		}
+		
+		.h2{
+			font-size: responsive-values(18, 30);
+			line-height: responsive-values(20, 45);
+			font-weight: 600;
+		}
+		figure{
+			width: rem(44);
+			height: rem(44);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 6px;
+		}
+		&-content{
+			margin-top: rem(20);
+		}
+	}
+}

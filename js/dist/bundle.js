@@ -1042,6 +1042,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../__utils/forms */ "./web/app/themes/sim4usa/js/src/__utils/forms.js");
 /* harmony import */ var _utils_vhUnit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../__utils/vhUnit */ "./web/app/themes/sim4usa/js/src/__utils/vhUnit.js");
 /* harmony import */ var _header_AlertBar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../__header/AlertBar */ "./web/app/themes/sim4usa/js/src/__header/AlertBar.js");
+/* harmony import */ var _woo_miniCart__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../__woo/miniCart */ "./web/app/themes/sim4usa/js/src/__woo/miniCart.js");
+/* harmony import */ var _woo_qtyBtns__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../__woo/qtyBtns */ "./web/app/themes/sim4usa/js/src/__woo/qtyBtns.js");
 
 
 
@@ -1051,8 +1053,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ 
 
-
+ 
 const headerMobile = new _header_mobileHeader__WEBPACK_IMPORTED_MODULE_1__["default"]();
 
 // GLOBAL APP CONTROLLER
@@ -1067,12 +1070,15 @@ const controller = {
 		(0,_utils_smoothScroll__WEBPACK_IMPORTED_MODULE_5__["default"])();
 		_utils_tables__WEBPACK_IMPORTED_MODULE_6__["default"].init();
 		(0,_utils_vhUnit__WEBPACK_IMPORTED_MODULE_8__["default"])();
-		(0,_header_AlertBar__WEBPACK_IMPORTED_MODULE_9__["default"])();
+		(0,_header_AlertBar__WEBPACK_IMPORTED_MODULE_9__["default"])(); 
+		//miniCart.init();
+		//qtyBtns.init();
 	},
 	loaded() {
 		document.querySelector('body').classList.add('page-has-loaded');
 		(0,_utils_forms__WEBPACK_IMPORTED_MODULE_7__["default"])();
 		(0,_utils_vhUnit__WEBPACK_IMPORTED_MODULE_8__["default"])();
+		
 	},
 	resized() {
 		headerMobile.resized();
@@ -1393,6 +1399,139 @@ const Video = {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Video);
 
+
+/***/ }),
+
+/***/ "./web/app/themes/sim4usa/js/src/__woo/miniCart.js":
+/*!*********************************************************!*\
+  !*** ./web/app/themes/sim4usa/js/src/__woo/miniCart.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const $ = jQuery.noConflict();
+
+class Cart {
+
+    constructor() {
+        this.items = [];
+        this.totalPrice = 0;
+    }
+
+    addItem(item) {
+        this.items.push(item);
+        this.totalPrice += item.price;
+    }
+
+    removeItem(item) {
+        const index = this.items.indexOf(item);
+        this.items.splice(index, 1);
+        this.totalPrice -= item.price;
+    
+    }
+    updateTotalPrice() {
+        this.totalPrice = 0; 
+        this.items.forEach(item => {
+          this.totalPrice += item.price;
+        });
+    }
+     
+    productButton(){
+        
+        const form = document.getElementsByClassName('cart'); 
+
+        if(form != 'undefind'){
+
+        
+        const productId = form[0].getElementsByClassName('single_add_to_cart_button');
+        const quantity = form[0].getElementsByClassName('qty');
+        const productPrice = form[0].getElementsByClassName('product-price-field');
+       
+        productId[0].addEventListener('click', function(e){
+           e.preventDefault();
+           const totalPrice = parseInt(quantity[0].value) * parseInt(productPrice[0].value); 
+            const itemObject = {
+                id: productId[0].value,
+                quanty: quantity[0].value,
+                price: productPrice[0].value,
+                totalProductPrice: totalPrice
+            } 
+            console.log(itemObject)
+        })
+
+        }
+         
+    }
+    init(){ 
+        this.productButton(); 
+    }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Cart());
+
+/***/ }),
+
+/***/ "./web/app/themes/sim4usa/js/src/__woo/qtyBtns.js":
+/*!********************************************************!*\
+  !*** ./web/app/themes/sim4usa/js/src/__woo/qtyBtns.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const $ = jQuery.noConflict();
+
+class QtyBtns {
+    constructor(){
+        this.counter = 1;
+    }
+    valueUpdate(value){
+        let qtyInput = document.getElementsByClassName('qty');
+        qtyInput[0].value = value;
+        console.log(qtyInput[0].value); 
+    }
+
+    addBtn(){
+        this.counter += 1;
+        this.valueUpdate(this.counter);
+    }
+    removeBtn(){ 
+        if(this.counter === 1){
+            return false;
+        }else{
+            this.counter -= 1;
+        }  
+        this.valueUpdate(this.counter);
+    }
+    btnHandler(){
+        let qtyBtn = document.getElementsByClassName('qty-btn'); 
+
+        for (let btn of qtyBtn) {
+            btn.addEventListener('click', function(e){
+                e.preventDefault();
+                if(e.target.classList.contains('qty-btn__add')){
+                    this.addBtn();
+                }else{
+                    this.removeBtn();
+                }
+            }.bind(this));
+        }
+       
+    }
+    init(){
+        this.btnHandler();
+    }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new QtyBtns());
+ 
 
 /***/ })
 

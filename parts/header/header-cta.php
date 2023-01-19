@@ -8,7 +8,14 @@
  */
 
 ?>
-
-<a class="c-btn c-btn-primary" href="<?php echo esc_url( $cta['url'] ); ?>" target="<?php esc_attr_e( $cta['target'] ); ?>">
+<div class="mobile-cta">
+<?php 
+	echo array_to_link( get_field( 'call_us_cta', 'option' ), 'c-btn c-btn-rounded', array('icon' => 'icon-phone') );
+	echo small_cart();
+?>
+</div>
+<?php if($cta){?>
+<a class="c-btn c-btn-primary" style="display:none;" href="<?php echo esc_url( $cta['url'] ); ?>" target="<?php esc_attr_e( $cta['target'] ); ?>">
 	<span><?php esc_html( $cta['title'] ); ?></span>
 </a>
+<?php }?>

@@ -40,7 +40,7 @@ if ( get_theme_setting( 'use_testimonal_post_type' ) ) {
 		'publicly_queryable'  => false,
 		'show_ui'             => true,
 		'exclude_from_search' => true,
-		'supports'            => array( 'title' ),
+		'supports'            => array( 'title', 'thumbnail' ),
 		'rewrite'             => array( 'slug' => 'testimonial' ),
 	);
 

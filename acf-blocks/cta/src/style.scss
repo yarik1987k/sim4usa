@@ -1,13 +1,47 @@
 @import "../../../css/src/lib/base-includes";
+.block-call-to-action{
+	padding: rem(40) 0;
+	 
+	&.sticky-right-img{
+		@include media-breakpoint-up(md) {
+			position: relative;
+			width: 100%;
+			padding-top: 7%;
+			padding-bottom: 7%;
+		}
+		figure{
+			margin-top: rem(40);
+			@include media-breakpoint-up(lg){
+				position: absolute;
+				right: 0;
+				top: 5%;
+			}
+		}
+		.col-6,
+		.col-12{
+			position: initial;
+
+		}
+	}
+	figure{
+		margin-top: rem(40);
+		@include media-breakpoint-up(lg){
+			margin-top:0;
+		}
+	}
+	.px-0{
+		@include media-breakpoint-down(sm){
+			padding:0;
+		}
+	}
+}
 
 .block-call-to-action {
 	background: paint(neutral-88);
 	color: paint(text-dark);
-	text-align: center;
+	text-align: left;
 
-	@include media-breakpoint-up(md) {
-		padding: rem(128) 0 rem(144);
-	}
+	 
 
 	@include headings() {
 		color: paint(text-dark);
@@ -21,6 +55,18 @@
 	.c-btn-group {
 		margin-bottom: 0;
 	}
+	&__title{
+		font-weight: 700;
+		font-size: rem(36);
+		line-height: rem(48);
+		color: paint(bg-dark);
+	}
+	&__description{
+		font-weight:400;
+		font-size: rem(20);
+		line-height: rem(35);
+	}
+
 }
 
 .block-call-to-action--dark {
