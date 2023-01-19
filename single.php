@@ -36,13 +36,6 @@ $tags = get_tags();
 							<?php endif; ?>
 
 							<h1 class="post-single__title"><?php the_title(); ?></h1>
-
-							<div class="post-single__tagline">
-								<div class="post-single__tagline-inner">
-									<address class="post-single__author">By <a rel="author"><?php the_author(); ?></a></address>
-									<time class="post-single__date"><?php the_date(); ?></time>
-								</div>
-							</div>
 						</header>
 					</div>
 				</div>
