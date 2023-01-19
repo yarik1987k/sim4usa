@@ -51,7 +51,6 @@ get_theme_part( 'html-head' );
 						echo array_to_link( get_field( 'secondary_cta', 'option' ), 'c-btn c-btn-secondary c-btn-secondary--small' );
 						echo array_to_link( get_field( 'primary_cta', 'option' ), 'c-btn c-btn-primary c-btn-primary--small' );
 						echo array_to_link( get_field( 'call_us_cta', 'option' ), 'c-btn c-btn-rounded', array('icon' => 'icon-phone') );
-						echo small_cart();
 						?>
 						
 					</div>
