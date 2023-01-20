@@ -43,7 +43,13 @@ $tags = get_tags();
 		</div>
 
 		<div class="post-single__content">
-			<?php default_content(); ?>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<?php default_content(); ?>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<footer class="post-single__footer">

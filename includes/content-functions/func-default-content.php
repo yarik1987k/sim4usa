@@ -10,7 +10,8 @@
 /**
  * Display the deafult content.
  */
-function default_content() {
+function default_content() { 
+	 
 	if ( has_blocks() ) : ?>
 		<?php the_content(); ?>
 	<?php else : ?>
