@@ -26,10 +26,15 @@ class MobileHeader {
 	}
 	setListState(e) {
 		e.preventDefault();
+		console.log();
 		if (!$(this).hasClass('open')) {
+			$(this).parent().addClass('open');
 			$(this).addClass('open');
+			$(this).parent().find('.sub-menu').addClass('open');
 		} else {
 			$(this).removeClass('open');
+			$(this).parent().removeClass('open');
+			$(this).parent().find('.sub-menu').removeClass('open');
 		}
 	}
 	static hideWrapper(el, body) {
