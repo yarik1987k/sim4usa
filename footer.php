@@ -68,7 +68,13 @@
 							</div>
 							<div class="col-md-6">
 								<div class="social">
-									
+									<ul>
+										<?php if(!empty($social['facebook'])):?><li><?php echo array_to_link( $social['facebook'], 'c-btn', array('icon' => 'icon-social-facebook') ); ?></li> <?php endif; ?>
+										<?php if(!empty($social['linkedin'])):?><li><?php echo array_to_link( $social['linkedin'], 'c-btn', array('icon' => 'icon-social-linkedin') ); ?></li> <?php endif; ?>
+										<?php if(!empty($social['twitter'])):?><li><?php echo array_to_link( $social['twitter'], 'c-btn', array('icon' => 'icon-social-twitter') ); ?></li> <?php endif; ?>
+										<?php if(!empty($social['instagram'])):?><li><?php echo array_to_link( $social['instagram'], 'c-btn', array('icon' => 'icon-social-instagram') ); ?></li> <?php endif; ?>
+									</ul>
+									<?php ?>
 								</div>
 							</div>
 						</div>

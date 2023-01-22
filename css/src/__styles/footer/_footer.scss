@@ -22,6 +22,38 @@
             font-size: rem(14);
             line-height: rem(20);
         }
+
+        .social{
+                text-align: right;
+                padding: 0;
+                display: flex;
+                width: 100%;
+                justify-content: end;
+                @include media-breakpoint-down(sm){
+                    justify-content: start;
+                    margin-top: rem(20);
+                }
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: inline-flex;
+                line-height: initial;
+                li{
+                    display: inline-flex;
+                    align-items: center;
+                    line-height: initial;
+                    padding-right: rem(15);
+                    a{
+                        color: paint(accent-variant);
+                        line-height: initial;
+                        span{
+                            line-height: initial;
+                        }
+                    }
+                }
+            }
+        }
     }
     .single-widget{
         margin: rem(20) 0;
@@ -32,11 +64,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            @include media-breakpoint-down(sm){
+                justify-content: start;
+            }
             figure{
                 width: rem(50);
                 height:rem(50); 
                 object-fit: cover;
                 flex: auto;
+                @include media-breakpoint-down(sm){
+                    flex: initial;
+                    margin-right:rem(15);
+                }
                 img{
                     filter: contrast(0.3);
                     width: 100%;
