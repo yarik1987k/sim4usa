@@ -182,10 +182,15 @@
 }
 .woocommerce-checkout #payment{
     margin-top: rem(20);
-    ul.payment_methods li{
-        input[type=radio]{
-            height: initial;
-            padding: 0;
+    background: transparent;
+    ul.payment_methods{
+        padding: 0;
+        li{
+            margin-bottom: rem(20);
+            input[type=radio]{
+                height: initial;
+                padding: 0;
+            }
         }
     }
 }
