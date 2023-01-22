@@ -1,6 +1,9 @@
 .woocommerce{
     display: flex;
     flex-direction: column;
+    .button{
+        height: rem(50);
+    }
     br{
         display: none !important;    
     }   
@@ -8,13 +11,16 @@
         .cuppon-holder{
             display: flex;
             .button{
-                height: 50px;
+                
                 margin-left: 10px;
             }
         }
     }
     .woocommerce-cart-form{
         margin-top: rem(30);
+        .coupon{
+
+        }
         .variation{
             display: flex;
             align-items: center;
