@@ -17,6 +17,8 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
+<div class="order-table">
+<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>	
 <table class="shop_table woocommerce-checkout-review-order-table">
 	<thead>
 		<tr>
@@ -108,3 +110,4 @@ defined( 'ABSPATH' ) || exit;
 
 	</tfoot>
 </table>
+			</div>
