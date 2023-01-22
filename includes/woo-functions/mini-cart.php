@@ -18,3 +18,8 @@ remove_theme_support( 'wc-product-gallery-lightbox' );
 
  
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 30 ); 
+add_action( 'admin_init', 'override_shipping_debug');
+
+function override_shipping_debug(){
+    update_option('woocommerce_shipping_debug_mode','no');
+}
