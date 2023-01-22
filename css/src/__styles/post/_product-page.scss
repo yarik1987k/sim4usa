@@ -195,7 +195,7 @@
 
             input[type=radio],
             [type=checkbox]{
-                height: initial;
+                height: initial !important;
                 padding: 0;
             }
             .payment_box{
