@@ -90,15 +90,23 @@
         }
     }
     
-.woocommerce-tabs{
-    .tabs{
-        li{
-            a{
-                br{
-                    display: none !important;
+    .woocommerce-tabs{
+        .tabs{
+            li{
+                a{
+                    br{
+                        display: none !important;
+                    }
                 }
             }
         }
     }
-}
+    input{
+        background: rgba(224, 224, 224, 0.3);
+        border: 1px solid rgba(79, 79, 79, 0.1);
+        border-radius: 4px;
+        height:rem(50);
+        padding: rem(15);
+    }
+
 }
