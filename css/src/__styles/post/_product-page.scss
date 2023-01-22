@@ -5,6 +5,15 @@
 
     .woocommerce-cart-form{
         margin-top: rem(30);
+        .variation{
+            display: flex;
+            align-items: center;
+        }
+        .product-name{
+            a{
+                color: paint(text-dark);
+            }
+        }
         .variation-ChooseYourSIMActivationDate{
             p{
                 background: paint(accent-variant);
