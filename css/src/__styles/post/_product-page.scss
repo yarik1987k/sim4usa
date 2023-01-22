@@ -1,8 +1,12 @@
 .woocommerce{
     display: flex;
     flex-direction: column;
-
-
+    br{
+        display: none !important;    
+    }   
+    .woocommerce-form-coupon{
+        
+    }
     .woocommerce-cart-form{
         margin-top: rem(30);
         .variation{
@@ -20,7 +24,7 @@
                 display: inline-block;
                 padding: rem(10);
                 border-radius: 4px;
-                
+
             }
         }
         .bundled_table_item_indent{
