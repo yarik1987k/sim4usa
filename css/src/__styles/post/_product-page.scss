@@ -177,7 +177,19 @@
             }
         }
     }
-
+    .select2-container--default .select2-selection--single{
+        height: 50px;
+        background: rgba(224, 224, 224, 0.3);
+        border: 1px solid rgba(79, 79, 79, 0.1);
+        border-radius: 4px;
+        height:rem(50);
+        padding: rem(15);
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered{
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
     
 }
 .woocommerce-checkout #payment{
