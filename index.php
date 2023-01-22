@@ -46,7 +46,7 @@ $term_id        = $tax_conditions ? get_queried_object()->term_id : null;
 						'[eight29_filters
 						post_type="' . $this_post_type . '"
 						display_sidebar="top"
-						posts_per_page="3"
+						posts_per_page="10"
 						taxonomy="' . $this_taxonomy . '"
 						term_id="' . $term_id . '"
 						]'
