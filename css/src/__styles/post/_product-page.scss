@@ -182,16 +182,10 @@
 }
 .woocommerce-checkout #payment{
     margin-top: rem(20);
-    ul.payment_methods{
-        .payment_box{
-            input,
-            textarea{
-                background: rgba(224, 224, 224, 0.3);
-                border: 1px solid rgba(79, 79, 79, 0.1);
-                border-radius: 4px;
-                height:rem(50);
-                padding: rem(15);
-            }  
+    ul.payment_methods li{
+        input[type=radio]{
+            height: initial;
+            padding: 0;
         }
     }
 }
