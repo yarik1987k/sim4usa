@@ -109,14 +109,19 @@
         height:rem(50);
         padding: rem(15);
     }
-    .woocommerce-shipping-fields{
+    .woocommerce-shipping-fields,
+    .woocommerce-billing-fields{
+        label{
+            font-size: rem(14);
+        }
         h3{
+            border-bottom: 1px solid paint(bg-dark);
+            br{
+                display: none !important;
+            }
             label{
                 display: flex;
                 align-items: center;
-                br{
-                    display: none !important;
-                }
                 input{
                     margin-right: rem(20);
                     padding: 0;
