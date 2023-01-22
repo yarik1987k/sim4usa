@@ -5,7 +5,9 @@
         display: none !important;    
     }   
     .woocommerce-form-coupon{
-        
+        .cuppon-holder{
+            display: flex;
+        }
     }
     .woocommerce-cart-form{
         margin-top: rem(30);
