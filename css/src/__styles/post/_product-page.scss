@@ -155,7 +155,7 @@
             line-height: rem(16);
         }
         .product-name{
-            padding:0;
+            padding:rem(10);
         }
         .bundled_table_item .bundled_table_item_indent{
             padding-left:0;
@@ -177,4 +177,21 @@
             }
         }
     }
+    .payment_methods{
+        margin-bottom: rem(20);
+        .wc_payment_method{
+            height: initial;
+        }
+        .payment_box{
+            input,
+            textarea{
+                background: rgba(224, 224, 224, 0.3);
+                border: 1px solid rgba(79, 79, 79, 0.1);
+                border-radius: 4px;
+                height:rem(50);
+                padding: rem(15);
+            }  
+        }
+    }
+    
 }
