@@ -3,6 +3,9 @@
     flex-direction: column;
     .button{
         height: rem(50);
+        &.checkout-button{
+            height: initial;
+        }
     }
     br{
         display: none !important;    
