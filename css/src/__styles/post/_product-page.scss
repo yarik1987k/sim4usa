@@ -109,5 +109,21 @@
         height:rem(50);
         padding: rem(15);
     }
+    .woocommerce-shipping-fields{
+        h3{
+            label{
+                display: flex;
+                align-items: center;
+                br{
+                    display: none !important;
+                }
+                input{
+                    margin-right: rem(20);
+                    padding: 0;
+                    height: inherit;
+                }
+            }
+        }
+    }
 
 }
