@@ -49,13 +49,15 @@
 				<div class="col-md-2">
 					<div class="single-widget">
 						<h3>Secure</h3>
+						<div class="security-icons">
 						<?php if($secure_icons){?>
 								<?php foreach($secure_icons as $icon){  ?>
 									<figure>
-										<?php echo wp_kses_post(wp_get_attachment_image($icon)) ;?>
+										<?php echo wp_kses_post(wp_get_attachment_image($icon['icon'])) ;?>
 									</figure>
 								<?php }?>
 						<?php }?>
+						</div>
 					</div>
 				</div>
 			</div>
