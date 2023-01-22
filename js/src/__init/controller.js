@@ -7,9 +7,7 @@ import smoothScroll from '../__utils/smoothScroll';
 import Tables from '../__utils/tables';
 import Forms from '../__utils/forms';
 import vhUnit from '../__utils/vhUnit';
-import AlertBar from '../__header/AlertBar'; 
-import miniCart from '../__woo/miniCart';
-import qtyBtns from '../__woo/qtyBtns'; 
+import AlertBar from '../__header/AlertBar';
 const headerMobile = new MobileHeader();
 
 // GLOBAL APP CONTROLLER
