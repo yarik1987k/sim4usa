@@ -7,6 +7,10 @@
     .woocommerce-form-coupon{
         .cuppon-holder{
             display: flex;
+            .button{
+                height: 50px;
+                margin-left: 10px;
+            }
         }
     }
     .woocommerce-cart-form{
