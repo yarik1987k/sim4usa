@@ -2,6 +2,25 @@
     display: flex;
     flex-direction: column;
 
+
+    .woocommerce-cart-form{
+        margin-top: rem(30);
+        .variation-ChooseYourSIMActivationDate{
+            p{
+                background: paint(accent-variant);
+                display: inline-block;
+                padding: rem(10);
+                border-radius: 4px;
+                margin-top: rem(10);
+            }
+        }
+        .bundled_table_item_indent{
+            padding-left:0;
+            a{
+                color: paint(text-dark);
+            }
+        }
+    }
     figure{
         pointer-events: none;
     }
