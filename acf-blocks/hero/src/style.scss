@@ -5,12 +5,12 @@
 	margin-top:0;
 	padding-top: responsive-values(60, 80);
 	padding-bottom: responsive-values(60, 120);
-
+	position: relative;
 	.container{
 		position: relative;
 		z-index: 9;
 	}
-	
+
 	h1{
 		font-weight: 900;
 		font-size: responsive-values(34, 48);
