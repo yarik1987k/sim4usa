@@ -31,8 +31,19 @@ if ( ! empty( $cards ) ) :
 				
 				<div class="col-4">
 					<div class="single-card">
-						<div class="single-card__price"><?php echo wp_kses_post($card['price']);?></div>
-						<div class="single-card__title"><?php echo wp_kses_post($card['title']);?></div>
+						<div class="single-card__top">
+							<div class="single-card__inner">
+								<div class="logo">
+									<?php echo wp_kses_post(wp_get_attachment_image($card['logo']));?>
+								</div>
+								<div class="content-top">
+									<div class="single-card__title"><?php echo wp_kses_post($card['title']);?></div>
+									<div class="single-card__main-title"><?php echo wp_kses_post($card['main_title']);?><span>/mo</span></div>
+								</div>
+							</div>
+						</div>
+						<div class="single-card__price"><?php echo wp_kses_post($card['price']);?><span>/mo</span></div>
+						
 						<div class="single-card__bullets">
 							<ul>
 								<?php foreach($card['bullets'] as $bullet):?>

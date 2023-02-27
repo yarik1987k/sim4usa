@@ -18,12 +18,13 @@
  * @since sim4usa  1.0
  */
 
-$content_block		= new Content_Block_Gutenberg( $block );
-$block_img			= wp_get_attachment_image( get_field( 'hero_image' ), 'large' );
-$main_block_class	= 'acf-block block-hero';
-$main_title			= get_field('main_title');
-$sub_title			= get_field('sub_title');
-$cta				= get_field('cta');
+$content_block			= new Content_Block_Gutenberg( $block );
+$block_img				= wp_get_attachment_image( get_field( 'hero_image' ), 'large' );
+$main_block_class		= 'acf-block block-hero';
+$main_title				= get_field('main_title');
+$sub_title				= get_field('sub_title');
+$cta					= get_field('cta');
+$background_image_url 	= wp_get_attachment_image( get_field( 'background_image' ), 'full' );
 
 ?><section id="<?php esc_attr_e( $content_block->get_block_id() ); ?>" class="<?php esc_attr_e( $main_block_class ); ?>">
 		<?php echo wp_kses( $content_block->get_block_spacing(), 'inline-style' ); ?>
@@ -49,4 +50,9 @@ $cta				= get_field('cta');
 				</div>
 			</div>
 		</div>
+		<?php if($background_image_url):?>
+			<figure class="block-hero__background-image">
+				<?php echo wp_kses_post($background_image_url); ?>
+			</figure>
+		<?php endif;?>
 	</section>

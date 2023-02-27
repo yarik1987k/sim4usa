@@ -5,20 +5,26 @@
 	margin-top:0;
 	padding-top: responsive-values(60, 80);
 	padding-bottom: responsive-values(60, 120);
+
+	.container{
+		position: relative;
+		z-index: 9;
+	}
+	
 	h1{
-		font-weight: 800;
-		font-size: responsive-values(34, 50);
-		line-height: responsive-values(40, 50);
+		font-weight: 900;
+		font-size: responsive-values(34, 48);
+		line-height: responsive-values(40, 64);
 		color: paint(text-dark);
 		margin-top:0;
-		margin-bottom: responsive-values(16, 32);
+		margin-bottom: 0;
 		text-transform: uppercase;
 	}
 	h2{
 		font-weight: 500;
-		font-size: responsive-values(24, 42);
-		line-height: responsive-values(32, 48);
-		color: paint(gray-3); 
+		font-size: responsive-values(24, 28);
+		line-height: responsive-values(32, 35);
+		color: paint(black-1); 
 		margin-top:0;
 		margin-bottom: responsive-values(16, 48);
 	}
@@ -27,6 +33,19 @@
 		margin-top: rem(80);
 		@include media-breakpoint-up(lg){
 			margin-top: 0;
+		}
+	}
+	&__background-image{
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+
+		img{
+			width: 100%;
+			height: 100%;
 		}
 	}
 }

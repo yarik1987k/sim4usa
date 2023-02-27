@@ -753,7 +753,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _js_src_utils_sliders__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../js/src/__utils/sliders */ "./web/app/themes/sim4usa/js/src/__utils/sliders.js");
 
-console.log(_js_src_utils_sliders__WEBPACK_IMPORTED_MODULE_0__.SimpleSliderCards);
+ 
 // GLOBAL APP CONTROLLER
 const controller = {
 	init() {

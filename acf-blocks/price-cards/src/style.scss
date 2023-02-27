@@ -60,29 +60,57 @@
 			background: paint(bg-light);
 			box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
 			border-radius: 18px;
-			padding: rem(30) rem(25);
-
+			overflow: hidden;
+			//padding: rem(30) rem(25);
+		&__top{
+			background: paint(accent-variant);
+			padding: rem(35) 0;
+		}
+		&__inner{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.logo{
+			margin-right: rem(10);
+		}
 		&__price{
-			color: paint(accent-variant);
-			font-weight: 600;
-			font-size: rem(57);
-			line-height: rem(56);
+			color: paint(text-dark);
+			font-weight: 700;
+			font-size: rem(32);
+			line-height: rem(40);
 			text-align: center;
+			padding-top: rem(20);
+			padding-bottom: rem(35);
+			span{
+				font-weight: 300;
+				font-size: rem(14);
+				line-height: rem(20);
+			}
 		}
 
 		&__title{
-			text-align: center;
-			font-weight: 400;
-			font-size: rem(20);
-			line-height: rem(28);
-			color: paint(gray-dark);
+			text-align: left;
+			font-weight: 300;
+			font-size: rem(14);
+			line-height: rem(20);
+			color: paint(text-light);
 			text-transform: uppercase;
-			padding-top: rem(14);
-			padding-bottom: rem(25);
+			margin-bottom: rem(5);
+		}
+		&__main-title{
+			font-weight: 900;
+			font-size: rem(48);
+			color: paint(text-light); 
+			span{
+				font-weight: 300;
+				font-size: rem(14);
+				line-height: rem(20);
+			}
 		}
 
 		&__bullets{
-
+			padding: 0 rem(25);
 			ul{
 				list-style: none;
 				padding:0;
@@ -93,48 +121,27 @@
 					padding:0;
 					display: flex;
 					align-items: start;
-					font-weight: 400;
-					font-size: rem(18);
-					line-height: rem(28);
+					font-weight: 200;
+					font-size: rem(14);
+					line-height: rem(24);
 					color: paint(gray-dark);
 					margin-bottom: rem(16);
-					&::before{
-						display: none;
-					}
 					span{
-						color: paint(green-light);
-						height: rem(20);
-						position: relative;
-						display: inline-flex;
-						transform: rotate(90deg);
-						margin-top: 4px;
-
-						&::before{
-							position: absolute;
-							top: 50%;
-							right: 12px;
-							transform: translateY(-36%);
-							z-index: 1;
-							content: '';
-						}
-						&::after{
-							display: inline-block;
-							margin-left: 3px; 
-							border: solid 10px transparent;
-							border-top-width: 0;
-							border-bottom-width: 10px;
-							border-bottom-color: paint(green-light);
-							clip-path: circle(54% at 50% 69%);
-							vertical-align: bottom;
-							content: '';
-						}
+						display: inline-block;
+						width: 5px;
+						height: 5px;
+						border-radius: 100%;
+						background: paint(bg-dark);
+						margin-right: 10px;
+    					margin-top: 10px;
 					}
 				}
 			}
 		}
 		&__cta{
 			text-align: center;
-			margin-top:rem(90);
+			margin-top: rem(40);
+			padding-bottom: rem(40);
 			.c-btn{
 				background-color: paint(accent-variant);
 				border-color: paint(accent-variant);

@@ -5,7 +5,7 @@
 	position: relative;
 	z-index: 100;
 	//margin-bottom: rem(80);
-	background-color: paint(accent);
+	background-color: paint(bg-light);
 	@include media-breakpoint-up(md) {
 		//margin-bottom: rem(160);
 	}
@@ -138,6 +138,22 @@
 
 		.c-btn + .c-btn {
 			margin-left: rem(11.5);
+		}
+		.c-btn{
+			&-rounded{
+				width: initial;
+				height: initial;
+				border-radius: 16px;
+				padding: 15px 30px;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 24px;
+				box-shadow: none;
+
+				.icon{
+					margin-left: 5px;
+				}
+			}
 		}
 	}
 
