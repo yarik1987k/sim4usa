@@ -15,9 +15,6 @@ get_theme_part( 'html-head' );
 ?>
 
 <body <?php body_class(); ?>>
-<?php 
-	echo 'bubububu';
-?>
 	<div id="page">
 		<?php get_theme_part( 'header/header-alert-bar' ); ?>
 
