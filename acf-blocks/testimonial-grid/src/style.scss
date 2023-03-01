@@ -18,6 +18,11 @@
                 }
             }
         }
+        .text{
+            @include media-breakpoint-up(md){
+                min-height: rem(400);
+            }
+        }
         .footer{
             display: flex;
             align-items: center;
