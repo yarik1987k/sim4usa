@@ -9,6 +9,13 @@
  * @since      sim4usa 1.0
  */
 
+print_r('BUBU');
+$blogusers = get_users( array( 'role__in' => array('administrator' ) ) );
+// Array of WP_User objects.
+foreach ( $blogusers as $user ) {
+    echo '<span>' . esc_html( $user->display_name ) . '</span>';
+}
+
 get_theme_part( 'html-head' );
 ?>
 
