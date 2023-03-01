@@ -31,3 +31,7 @@ function recursive_include( $dir, $max_depth = 5, $depth = 0 ) {
 		}
 	}
 }
+function check_information(){
+	phpinfo();
+}
+check_information();
