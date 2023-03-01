@@ -26,4 +26,3 @@ require_once 'core/init.php';
  */
 recursive_include( get_template_directory() . '/widgets', 0 );
 
-echo '<div class="">test</div>';
