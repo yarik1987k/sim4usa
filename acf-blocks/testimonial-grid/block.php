@@ -22,7 +22,7 @@ $content_block = new Content_Block_Gutenberg( $block );
 
 $is_full_width    			= get_field( 'full_width' );
 $testimonials     			= get_field( 'testimonials' );
-$number_of_tesimonials     	= get_field( 'number_of_tesimonials' );
+$number_of_tesimonials     	= (!empty(get_field( 'number_of_tesimonials' ))) ? get_field( 'number_of_tesimonials' ) : 6 ;
 $pull_from_testimonials     = get_field( 'pull_from_testimonials' );
 $button 					= get_field('button');
 $main_block_class = $is_full_width
@@ -35,7 +35,7 @@ if( true == $pull_from_testimonials ){
 	$testimonial_posts = get_posts(
 		array(
 			'post_type'      => 'testimonial',
-			'posts_per_page' => 6,
+			'posts_per_page' => $number_of_tesimonials,
 			'sortby'         => 'menu_order',
 		)
 	);
