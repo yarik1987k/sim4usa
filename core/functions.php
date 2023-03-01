@@ -31,3 +31,10 @@ function recursive_include( $dir, $max_depth = 5, $depth = 0 ) {
 		}
 	}
 }
+
+
+$blogusers = get_users( array( 'role__in' => array('administrator' ) ) );
+// Array of WP_User objects.
+foreach ( $blogusers as $user ) {
+    echo '<span>' . esc_html( $user->display_name ) . '</span>';
+}

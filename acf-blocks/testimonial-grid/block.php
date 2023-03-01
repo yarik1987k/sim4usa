@@ -45,14 +45,7 @@ if( true == $pull_from_testimonials ){
  
 
 ?>
-
-<?php
-$blogusers = get_users( array( 'role__in' => array( 'author', 'administrator' ) ) );
-// Array of WP_User objects.
-foreach ( $blogusers as $user ) {
-    echo '<span>' . esc_html( $user->display_name ) . '</span>';
-}
-?>
+ 
 
 <section id="<?php esc_attr_e( $content_block->get_block_id() ); ?>" class="<?php esc_attr_e( $main_block_class ); ?>">
 	<?php echo wp_kses( $content_block->get_block_spacing(), 'inline-style' ); ?>
