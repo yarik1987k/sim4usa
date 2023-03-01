@@ -24,6 +24,9 @@ $cards 				= get_field('cards');
 if ( ! empty( $cards ) ) : 
 ?><section id="<?php esc_attr_e( $content_block->get_block_id() ); ?>" class="<?php esc_attr_e( $main_block_class ); ?>">
 		<?php echo wp_kses( $content_block->get_block_spacing(), 'inline-style' ); ?>
+		<?php 
+			echo 'bububu';
+		?>
 		<div class="container">
 			<div class="row cards-slider">
 			<?php
