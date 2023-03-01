@@ -20,7 +20,7 @@
         }
         .text{
             @include media-breakpoint-up(md){
-                min-height: rem(400);
+                min-height: rem(300);
             }
         }
         .footer{
