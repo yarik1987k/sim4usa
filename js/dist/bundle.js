@@ -1047,6 +1047,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../__utils/forms */ "./web/app/themes/sim4usa/js/src/__utils/forms.js");
 /* harmony import */ var _utils_vhUnit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../__utils/vhUnit */ "./web/app/themes/sim4usa/js/src/__utils/vhUnit.js");
 /* harmony import */ var _header_AlertBar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../__header/AlertBar */ "./web/app/themes/sim4usa/js/src/__header/AlertBar.js");
+/* harmony import */ var _shortcodes_popup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../__shortcodes/popup */ "./web/app/themes/sim4usa/js/src/__shortcodes/popup.js");
+
 
 
 
@@ -1066,6 +1068,7 @@ const controller = {
 		_header_MegaMenu__WEBPACK_IMPORTED_MODULE_0__["default"].init();
 		headerMobile.init();
 		_shortcodes_accordions__WEBPACK_IMPORTED_MODULE_2__["default"].init();
+		_shortcodes_popup__WEBPACK_IMPORTED_MODULE_10__["default"].init();
 		_utils_video__WEBPACK_IMPORTED_MODULE_4__["default"].init();
 		(0,_utils_mirrorHover__WEBPACK_IMPORTED_MODULE_3__["default"])();
 		(0,_utils_smoothScroll__WEBPACK_IMPORTED_MODULE_5__["default"])();
@@ -1127,6 +1130,41 @@ class Accordions {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Accordions('.bellow__title'));
+
+
+/***/ }),
+
+/***/ "./web/app/themes/sim4usa/js/src/__shortcodes/popup.js":
+/*!*************************************************************!*\
+  !*** ./web/app/themes/sim4usa/js/src/__shortcodes/popup.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const $ = jQuery.noConflict();
+
+class Popup {
+	constructor(trigger) {
+		this.trigger = $(trigger);
+	}
+	init() {
+		this.bindEvents();
+	}
+	bindEvents() {
+		this.trigger.on('click', this.toggleAccordion);
+	}
+	toggleAccordion() {
+		$(document).find('.popup-extra').toggleClass('active');
+		$(document).find('body').toggleClass('lock-scroll');
+
+	}
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Popup('.popup-toggle'));
 
 
 /***/ }),

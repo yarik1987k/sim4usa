@@ -21,27 +21,46 @@
     }
     .woocommerce-cart-form{
         margin-top: rem(30);
+        .product-name{
+            a{
+                font-weight: 600;
+                font-size: rem(24);
+                line-height: rem(36);
+                color: paint(black);
+                text-decoration: none;
+                padding-bottom: rem(20);
+                display: block;
+            }
+        }
         .coupon{
 
         }
         .variation{
-            display: flex;
-            align-items: center;
+            list-style: none;
+            li{
+                display: inline-flex;
+                align-items: center;
+                width: 100%;
+                &::before{
+                    @include icon-font($icon-check-circle);  
+                }
+            }
+            li,p{
+                font-weight: 300;
+                font-size: rem(14);
+                line-height: rem(20);
+                color: paint(black);
+                p{
+                    display: inline;
+                }
+            }
         }
         .product-name{
             a{
                 color: paint(text-dark);
             }
         }
-        .variation-ChooseYourSIMActivationDate{
-            p{
-                background: paint(accent-variant);
-                display: inline-block;
-                padding: rem(10);
-                border-radius: 4px;
-
-            }
-        }
+      
         .bundled_table_item_indent{
             padding-left:0;
             a{
@@ -52,9 +71,7 @@
     figure{
         pointer-events: none;
     }
-    p.price{
-        display: none !important;
-    }
+   
     div.product form.cart .button{
         cursor: pointer;
         appearance: none;
@@ -63,9 +80,12 @@
         line-height: 1.5;
         display: inline-block;
         background-color: paint(accent-variant);
-        color: paint(text-light);
+        color: paint(text-light) !important;
         height:rem(50);
-    
+        width: 50%;
+        float: right;
+        border-radius: 10px;
+        
         &:hover,
         &:focus {
             border-color: paint(accent);
@@ -74,10 +94,88 @@
         }
     }
     form.cart{
-        background: paint(bg-light);
-        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
-        border-radius: 18px;
-        padding: rem(30) rem(25);
+       .wapf{
+           &-product-totals{
+            border-top: 2px solid paint(black);
+            margin-bottom: rem(20);
+            padding: rem(20);
+            background-color: paint(gray-2);
+            .wapf--inner{
+                padding-top: 0;
+                div{
+                    border-bottom: 1px solid paint(black);
+                    padding: rem(10) 0;
+                    span{
+                        font-weight: 600;
+                        font-size: rem(20);
+                        line-height: rem(36);
+                        color: paint(black);
+                    }
+                }
+            }
+           }
+           &-wrapper{
+
+           }
+           &-input{
+            background: paint(gray-6);
+            border-radius: 10px;
+            font-weight: 300;
+            font-size: rem(14);
+            line-height: rem(20);
+            border: none;
+           }
+           &--above{
+               label{
+                   span{
+                    font-weight: 600;
+                    font-size: rem(20);
+                    line-height: rem(36);
+                    color: paint(black);
+                   }
+               }
+           }
+           &-field-row{
+                margin: rem(20) 0;
+           }
+           &-radios{
+            background: paint(gray-5);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+           }
+           &-checkable{
+                flex: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 10px;
+               label{
+                   margin: 0;
+                   padding: 0;
+                   width: 100%;
+                   height: rem(50);
+                   display: flex;
+                   align-items: center;
+                   justify-content: center;
+                   input{
+                       display: none;
+                   }
+                   span{
+                    letter-spacing: 0.02em;
+                    font-weight: 300;
+                    font-size: rem(14);
+                    line-height: rem(20);
+                    color: paint(black);
+                   }
+               }
+               &.wapf-checked{
+                   background: paint(accent-variant);
+               }
+           }
+       }
         p{
             margin: 0 !important;
             padding: 0 !important; 
@@ -125,12 +223,25 @@
         }
     }
     .quantity{
-       
+       margin-right: rem(40);
 
-       
+       .woopq-quantity-input-minus,
+       .woopq-quantity-input-plus{
+           width: rem(50);
+           height: rem(50);
+           background: paint(accent-variant);
+           color: paint(black);
+           border-radius: 10px;
+           font-weight: 500;
+            font-size: rem(18);
+            line-height: rem(28);
+            align-items: center;
+            justify-content: center;
+            display: flex;
+       }
         .qty{
-            background: rgba(224, 224, 224, 0.3);
-            border: 1px solid rgba(79, 79, 79, 0.1);
+            background: transparent;
+            border: none;
             border-radius: 4px;
             height:rem(50);
             padding: rem(15);
@@ -241,6 +352,10 @@
     .wp-element-button{
         background: paint(accent-variant) !important;
         color: paint(text-dark) !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
     }
 }
 .woocommerce-checkout #payment{
