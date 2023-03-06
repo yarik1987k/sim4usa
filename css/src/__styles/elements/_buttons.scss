@@ -109,9 +109,12 @@
 }
 
 .c-btn-tertiary {
-	color: paint(accent);
+	color: paint(text-dark);
 	display: inline-flex;
-
+	border: none;
+	background: transparent;
+	border-bottom: 1px solid paint(text-dark);
+    padding: 0;
 	&::after {
 		@include icon-font( $icon-arrow-right );
 		display: inline-block;
