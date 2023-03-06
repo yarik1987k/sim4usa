@@ -31,3 +31,12 @@ function recursive_include( $dir, $max_depth = 5, $depth = 0 ) {
 		}
 	}
 }
+
+function disable_wp_auto_p( $content ) {
+	remove_filter( 'the_content', 'wpautop' );
+	remove_filter( 'the_excerpt', 'wpautop' );
+	return $content;
+  }
+  add_filter( 'the_content', 'disable_wp_auto_p', 0 );
+
+  add_theme_support('woocommerce');

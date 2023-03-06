@@ -24,7 +24,7 @@ global $product;
  *
  * @hooked woocommerce_output_all_notices - 10
  */
-do_action( 'woocommerce_before_single_product' );
+//do_action( 'woocommerce_before_single_product' );
 
 if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
@@ -33,37 +33,87 @@ if ( post_password_required() ) {
 ?>
 <?php 
 $product_options = get_field('product_options');
- 
+$product_plan = get_field('product_plan');
+$opereator_logo = get_field('opereator_logo');
+$amount_of_traffic = get_field('amount_of_traffic');
+
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'container', $product ); ?>>
 	<div class="product-template">
 		<div class="row">
-			<div class="col-6">1</div>
+				<div class="col-md-12">
+					<div class="bread-crumbs">
+						<?php echo woocommerce_breadcrumb(); ?>
+					</div>
+				</div>
+				<div class="col-12">
+					<?php woocommerce_output_all_notices(); ?>
+				</div>
+			</div>
+		<div class="row">
+			<div class="col-6">
+				<div class="product-image">
+					<?php woocommerce_show_product_images();?>
+				</div>
+			</div>
 			<div class="col-6">
 				<div class="product-option">
 					<div class="product-title"><?php woocommerce_template_single_title();?></div>
-					<div class="product-info">
-						<h3>INCLUDES</h3>
-						<?php echo the_content(); ?>
-						<button class="c-btn c-btn-tertiary popup" data-target="">See More </button>
-						<?php if($product_options):?>
-							<div class="accordion">
-								<?php foreach($product_options as $option):?>
-									<div class="single-accordion">
-										<div class="single-accordion-title">
-											<button>
-												<h5><?php echo $option['title']; ?></h5>
-												<span class="icon icon-chev-right"></span>
-											</button>
-										</div>
-										<div class="single-accordion-content">
-											<?php echo $option['content']; ?>
-										</div>
-									</div>
-								<?php endforeach; ?>
+					<div class="product-sub_title">
+						<div class="left">
+							<?php if(!empty($opereator_logo)):?>
+								<figure>
+									<img src="<?php echo $opereator_logo;?>"/>
+								</figure>
+							<?php endif;?>
+							<div class="product-plan-info">
+								<?php if(!empty($product_plan)):?>
+									<span><?php echo $product_plan;?></span>
+								<?php endif;?>
+								<?php if(!empty($amount_of_traffic)):?>
+									<h5><?php echo $amount_of_traffic;?><span>/mo</span></h5>
+								<?php endif;?>
 							</div>
+						</div>
+						<div class="right">
+							<div class="product-price-new">
+								<?php woocommerce_template_single_price(); ?><span>/mo</span>
+							</div>
+						</div>
+					</div>
+					<div class="product-info">
+						<div class="short-info">
+							<h3>INCLUDES</h3>
+							<?php woocommerce_template_single_excerpt();?>
+							<button class="c-btn c-btn-tertiary popup popup-toggle" data-target="">See More </button>
+						</div>
+
+						<?php if($product_options):?>
+							<div class="popup-extra">
+								<div class="container">
+
+									<div class="close-popup popup-toggle">
+										<button class="icon icon-close"></button>
+									</div>
+									<div class="accordion">
+									<?php foreach($product_options as $option):?>
+										<div class="single-accordion bellow">
+											<div class="single-accordion-title bellow__title"><button><h5><?php echo $option['title']; ?></h5></button></div>
+											<div class="single-accordion-content bellow__content">
+												<?php echo $option['content']; ?>
+											</div>
+										</div>
+									<?php endforeach; ?>
+									</div>
+								</div>
+							</div>
+							
 						<?php endif;?>
 					</div>
+					<?php woocommerce_template_single_add_to_cart(); ?>
+					<figure class="security-logo">
+						<img src="<?php echo get_stylesheet_directory_uri();?>/images/security.png"/>
+					</figue>
 				</div>
 			</div>
 		</div>
@@ -75,11 +125,12 @@ $product_options = get_field('product_options');
 	 * @hooked woocommerce_show_product_sale_flash - 10
 	 * @hooked woocommerce_show_product_images - 20
 	 */
-	do_action( 'woocommerce_before_single_product_summary' );
+	//do_action( 'woocommerce_before_single_product_summary' );
 	?>
 
 	<div class="summary entry-summary">
 		<?php
+		
 		/**
 		 * Hook: woocommerce_single_product_summary.
 		 *
@@ -92,7 +143,7 @@ $product_options = get_field('product_options');
 		 * @hooked woocommerce_template_single_sharing - 50
 		 * @hooked WC_Structured_Data::generate_product_data() - 60
 		 */
-		do_action( 'woocommerce_single_product_summary' );
+		//do_action( 'woocommerce_single_product_summary' );
 		?>
 	</div>
 
@@ -104,7 +155,7 @@ $product_options = get_field('product_options');
 	 * @hooked woocommerce_upsell_display - 15
 	 * @hooked woocommerce_output_related_products - 20
 	 */
-	do_action( 'woocommerce_after_single_product_summary' );
+	//do_action( 'woocommerce_after_single_product_summary' );
 	?>
 </div>
 

@@ -8,6 +8,7 @@ import Tables from '../__utils/tables';
 import Forms from '../__utils/forms';
 import vhUnit from '../__utils/vhUnit';
 import AlertBar from '../__header/AlertBar';
+import popup from '../__shortcodes/popup';
 const headerMobile = new MobileHeader();
 
 // GLOBAL APP CONTROLLER
@@ -17,6 +18,7 @@ const controller = {
 		MegaMenu.init();
 		headerMobile.init();
 		Accordion.init();
+		popup.init();
 		Video.init();
 		mirrorHover();
 		smoothScroll();
