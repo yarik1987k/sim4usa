@@ -31,9 +31,43 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'container', $product ); ?>>
+<?php 
+$product_options = get_field('product_options');
  
+?>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'container', $product ); ?>>
+	<div class="product-template">
+		<div class="row">
+			<div class="col-6">1</div>
+			<div class="col-6">
+				<div class="product-option">
+					<div class="product-title"><?php woocommerce_template_single_title();?></div>
+					<div class="product-info">
+						<h3>INCLUDES</h3>
+						<?php echo the_content(); ?>
+						<button class="c-btn c-btn-tertiary popup" data-target="">See More </button>
+						<?php if($product_options):?>
+							<div class="accordion">
+								<?php foreach($product_options as $option):?>
+									<div class="single-accordion">
+										<div class="single-accordion-title">
+											<button>
+												<h5><?php echo $option['title']; ?></h5>
+												<span class="icon icon-chev-right"></span>
+											</button>
+										</div>
+										<div class="single-accordion-content">
+											<?php echo $option['content']; ?>
+										</div>
+									</div>
+								<?php endforeach; ?>
+							</div>
+						<?php endif;?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<?php
 	/**
 	 * Hook: woocommerce_before_single_product_summary.

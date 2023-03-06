@@ -24,6 +24,8 @@ $categories = array_reduce(
 );
 
 $tags = get_tags();
+$post_type = get_post_type();
+ 
 ?>
 	<article class="post-single">
 		<div class="post-single__top">
@@ -34,8 +36,9 @@ $tags = get_tags();
 							<?php if ( ! empty( $categories ) ) : ?>
 								<div class="post-single__categories"><?php esc_html_e( implode( ', ', $categories ) ); ?></div>
 							<?php endif; ?>
-
-							<h1 class="post-single__title"><?php the_title(); ?></h1>
+							<?php if($post_type != 'product'): ?>
+								<h1 class="post-single__title"><?php the_title(); ?></h1>
+							<?php endif ;?>
 						</header>
 					</div>
 				</div>
