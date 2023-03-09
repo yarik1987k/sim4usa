@@ -9,6 +9,7 @@ import Forms from '../__utils/forms';
 import vhUnit from '../__utils/vhUnit';
 import AlertBar from '../__header/AlertBar';
 import popup from '../__shortcodes/popup';
+import changeSim from '../__shortcodes/changeSim';
 const headerMobile = new MobileHeader();
 
 // GLOBAL APP CONTROLLER
@@ -25,6 +26,7 @@ const controller = {
 		Tables.init();
 		vhUnit();
 		AlertBar(); 
+		changeSim.init();
 		//miniCart.init();
 		//qtyBtns.init();
 	},

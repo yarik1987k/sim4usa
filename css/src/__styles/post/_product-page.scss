@@ -20,7 +20,31 @@
         }
     }
     .woocommerce-cart-form{
+        h1{
+            font-weight: 900;
+            font-size: 48px;
+            line-height: 64px;
+            color: paint(black);
+            border-bottom: 2px solid paint(black);
+        }
         margin-top: rem(30);
+        table{
+            border: none;
+            td{
+                border-bottom: 2px solid paint(black);
+                &.product-name{
+                    a{
+                        color: paint(black);
+                        font-weight: 600;
+                        font-size: 24px;
+                        line-height: 36px;
+                    }
+                }
+            }
+        }
+        table.cart img{
+            width: rem(300);
+        }
         .product-name{
             a{
                 font-weight: 600;
@@ -37,6 +61,7 @@
         }
         .variation{
             list-style: none;
+            padding-left: 0;
             li{
                 display: inline-flex;
                 align-items: center;
@@ -44,15 +69,23 @@
                 &::before{
                     @include icon-font($icon-check-circle);  
                 }
+                p{
+                    display: inline;
+                    margin: 0;
+                }
+                .c-btn{
+                    margin-left: 10px;
+                    &::after{
+                        display: none;
+                    }
+                }
             }
             li,p{
                 font-weight: 300;
                 font-size: rem(14);
                 line-height: rem(20);
                 color: paint(black);
-                p{
-                    display: inline;
-                }
+
             }
         }
         .product-name{
@@ -299,16 +332,9 @@
     }
     .order-table{
 
-        background: #fff;
-        padding: rem(20);
-        border: 1px solid rgba(79, 79, 79, 0.1);
-        border-radius: 4px;
-        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+ 
         @include media-breakpoint-up(xl){
-            position: fixed;
-            right: 0;
-            top: 130px;
-            z-index: 999;
+ 
         }
         td.product-name dl.variation p{
             font-size: rem(14);
@@ -356,6 +382,56 @@
         align-items: center;
         justify-content: center;
         border-radius: 10px;
+    }
+    .popup-change-sim{
+        position: absolute;
+        background: #fff;
+        padding: 20px;
+        box-shadow: #00000036 0px 0px 10px 0px;
+        border-radius: 10px;
+        opacity: 0;
+        pointer-events: none;
+        &.active{
+            opacity: 1;
+            pointer-events: initial;
+        }
+        .close{
+            .icon{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                border: none;
+                padding: 0;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+        }
+        .sim-options{
+            padding-top: 20px;
+            button{
+                text-decoration: underline;
+                border: none;
+                background: transparent;
+                &.no-active{
+                    pointer-events: none;
+                    color: paint(gray-4);
+                }
+            }
+        }
+    }
+    .checkout-page{
+        .chekout-title{
+            h1{
+                font-weight: 900;
+                font-size: 48px;
+                line-height: 64px;
+                letter-spacing: -0.01em;
+                color: paint(black);
+                border-bottom: 2px solid paint(black);
+            }
+        }
     }
 }
 .woocommerce-checkout #payment{
