@@ -95,7 +95,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 												}
 											?>
 											<li class="<?php echo sanitize_html_class( 'variation-' . $data['label'] ); ?>">
-												<?php echo wp_kses_post( $data['label'] ); ?> :  <?php echo wp_kses_post( wpautop( $data['value'] ) ); ?>
+												<p><?php echo wp_kses_post( $data['label']); ?> <?php echo wp_kses_post($data['value'] ); ?></p>
 												<?php if($data['label'] === 'Sim Type'):?>
 													<button class="c-btn c-btn-tertiary change-sim" data-sim-type="<?php echo $data['value'];?>">Change sim type</button>
 													<div class="popup-change-sim">

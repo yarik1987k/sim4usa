@@ -77,3 +77,31 @@ function disable_wp_auto_p( $content ) {
   if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'custom-thumb', 140, 140 ); // 100 wide and 100 high
 }
+
+add_action( 'wp_ajax_check_imei', 'check_imei_cllback' );
+add_action( 'wp_ajax_nopriv_check_imei', 'check_imei_cllback' );
+
+function check_imei_cllback(){
+ 
+
+	$IMEI = $_POST['searchTerm'];
+	$REFID = "535244" ;
+	$USERNAME = "TESTUSER" ;
+	$APIKEY = "WT3-FRZ-FGO-TF7-2MN-X0P-GYY-JUL" ;
+
+	$url = 'https://alpha.imeicheck.com/api/modelBrandName?imei='.$IMEI.'&format=json';
+ 
+
+	$ch = curl_init( $url );
+	curl_setopt( $ch, CURLOPT_POST, 1);
+	curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+	curl_setopt( $ch, CURLOPT_HEADER, 0);
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+
+	$response = curl_exec( $ch );
+
+	echo json_encode($response);
+
+
+	wp_die();
+}

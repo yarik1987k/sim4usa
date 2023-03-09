@@ -1049,6 +1049,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _header_AlertBar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../__header/AlertBar */ "./web/app/themes/sim4usa/js/src/__header/AlertBar.js");
 /* harmony import */ var _shortcodes_popup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../__shortcodes/popup */ "./web/app/themes/sim4usa/js/src/__shortcodes/popup.js");
 /* harmony import */ var _shortcodes_changeSim__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../__shortcodes/changeSim */ "./web/app/themes/sim4usa/js/src/__shortcodes/changeSim.js");
+/* harmony import */ var _shortcodes_brandCheck__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../__shortcodes/brandCheck */ "./web/app/themes/sim4usa/js/src/__shortcodes/brandCheck.js");
+/* harmony import */ var _shortcodes_imeiCheck__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../__shortcodes/imeiCheck */ "./web/app/themes/sim4usa/js/src/__shortcodes/imeiCheck.js");
+
+
 
 
 
@@ -1078,6 +1082,8 @@ const controller = {
 		(0,_utils_vhUnit__WEBPACK_IMPORTED_MODULE_8__["default"])();
 		(0,_header_AlertBar__WEBPACK_IMPORTED_MODULE_9__["default"])(); 
 		_shortcodes_changeSim__WEBPACK_IMPORTED_MODULE_11__["default"].init();
+		_shortcodes_brandCheck__WEBPACK_IMPORTED_MODULE_12__["default"].init();
+		_shortcodes_imeiCheck__WEBPACK_IMPORTED_MODULE_13__["default"].init();
 		//miniCart.init();
 		//qtyBtns.init();
 	},
@@ -1134,6 +1140,73 @@ class Accordions {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Accordions('.bellow__title'));
 
+
+/***/ }),
+
+/***/ "./web/app/themes/sim4usa/js/src/__shortcodes/brandCheck.js":
+/*!******************************************************************!*\
+  !*** ./web/app/themes/sim4usa/js/src/__shortcodes/brandCheck.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _brands_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../brands.json */ "./web/app/themes/sim4usa/brands.json");
+const $ = jQuery.noConflict();
+
+class BrandCheck {
+	init() {
+	  // Call bindEvents() once to initialize the results list
+	  this.bindEvents();
+	}
+	
+	bindEvents() {
+
+		$('.check-helper').on('click',this.popupToglle);
+		$('.close-sim-benefit-popup').on('click',this.popupToglle);
+		
+	  // Get the search box input field and the results list
+	  var searchBox = document.getElementById("search-box");
+	  var resultsList = document.getElementById("results-list");
+	  
+	  // Bind the search function to the oninput event of the search box
+	  searchBox.addEventListener("input", function() {
+		// Get the search term from the input field
+		var searchTerm = searchBox.value;
+  
+		// If the search string is empty, clear the results list and return
+		if (searchTerm === "") {
+		  resultsList.innerHTML = "";
+		  return;
+		}
+  
+		// Search the array for matches
+		var results = _brands_json__WEBPACK_IMPORTED_MODULE_0__.filter(function(item) {
+		  return item.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+		});
+  
+		// Display the results in the results list
+		resultsList.innerHTML = "";
+		if (results.length === 0) {
+		  resultsList.innerHTML = "<li>No results found.</li>";
+		} else {
+		  results.forEach(function(item) {
+			resultsList.innerHTML += "<li>" + item + "</li>";
+		  });
+		}
+	  });
+	}
+
+	popupToglle(){
+		$(document).find('.sim-benefit-popup').toggleClass('active');
+
+	}
+  }
+  
+  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new BrandCheck());
 
 /***/ }),
 
@@ -1195,6 +1268,67 @@ class ChangeSimType {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new ChangeSimType);
 
+
+/***/ }),
+
+/***/ "./web/app/themes/sim4usa/js/src/__shortcodes/imeiCheck.js":
+/*!*****************************************************************!*\
+  !*** ./web/app/themes/sim4usa/js/src/__shortcodes/imeiCheck.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const $ = jQuery.noConflict();
+
+class ImeiCheck {
+	init() {
+	  // Call bindEvents() once to initialize the results list
+	  this.bindEvents();
+	}
+	
+	bindEvents() {
+
+ 
+ 
+	  var submitImei = document.getElementById("submit-imei");
+	  var searchBox = document.getElementById("search-box-imei");
+	  var results = document.getElementById("result-imei");
+	  submitImei.addEventListener("click", function(e) {
+		  e.preventDefault();
+		// Get the search term from the input field
+		var searchTerm = searchBox.value;
+
+
+		 
+		$.ajax({
+			type: 'POST',
+			url: woocommerce_params.ajax_url,
+			dataType: 'JSON',
+			data: {
+				action: 'check_imei',
+				searchTerm: searchTerm
+			},
+			success(response) {
+				let json = JSON.parse(response);
+				if(json.status === "succes"){
+					results.innerHTML += 'Status: '+json.status+'<br>';
+					results.innerHTML += json.result;
+
+				}
+				//location.reload();
+			},
+		});  
+	  });
+	}
+
+ 
+  }
+  
+  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new ImeiCheck());
 
 /***/ }),
 
@@ -1502,6 +1636,17 @@ const Video = {
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Video);
 
+
+/***/ }),
+
+/***/ "./web/app/themes/sim4usa/brands.json":
+/*!********************************************!*\
+  !*** ./web/app/themes/sim4usa/brands.json ***!
+  \********************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('["Apple iPhone XS","Apple iPhone XS Max","Apple iPhone 11","Apple iPhone 11 Pro","Apple iPhone 11 Pro Max","Apple iPhone SE (2020)","Apple iPhone 12 Mini","Apple iPhone 12","Apple iPhone 12 Pro","Apple iPhone 12 Pro Max","Apple iPhone 13 mini","Apple iPhone 13","Apple iPhone 13 Pro","Apple iPhone 13 Pro Max","Apple iPhone SE (2022)","Apple iPhone 14","Apple iPhone 14 Plus","Apple iPhone 14 Pro","Apple iPhone 14 Pro Max","Apple iPad Pro (2018 and onwards)","Apple iPad Air","Apple iPad","Apple Watch series 3","Apple Watch series 4","Apple Watch series 5","Apple Watch series 6","Apple Watch SE","Google Pixel 3","Google Pixel 3a","Google Pixel 4","Google Pixel 4a","Google Pixel 5","Google Pixel 6","Google Pixel 6a","Google Pixel 6 Pro","Google Pixel 7","Google Pixel 7 Pro","Huawei P40","Huawei P40 Pro (not including the P40 Pro +)","Huawei Mate 40 Pro","Motorola Razr 2019","Motorola Razr 5G","Samsung Galaxy Z Flip","Samsung Galaxy Z Flip 5G","Samsung Galaxy Z Flip3 5G","Samsung Galaxy Z Flip4","Samsung Galaxy Fold","Samsung Galaxy Z Fold2 5G","Samsung Galaxy Z Fold3 5G","Samsung Galaxy Z Fold4","Samsung Galaxy S20","Samsung Galaxy S20+ 5g","Samsung Galaxy S21","Samsung Galaxy S21+ 5G","Samsung Galaxy S21 Ultra 5G","Samsung Galaxy S22","Samsung Galaxy S22+","Samsung Galaxy S22 Ultra","Samsung Galaxy Note 20 Ultra 5G","Samsung Galaxy Note 20","Samsung Galaxy S23","Samsung Galaxy S23+","Samsung Galaxy S23 Ultra","Planet Computers Gemini PDA","Rakuten Mobile Rakuten Mini","Rakuten Mobile Big-S","Rakuten Mobile Big","Rakuten Mobile Hand","Rakuten Mobile Hand 5G","Oppo Find X3 Pro","Oppo Reno 5 A","Oppo Find X5","Oppo Find X5 Pro","Sony Xperia 10 III Lite ","Sony Xperia 10 IV","Sony Xperia 1 IV","Sony Xperia 5 IV","Honor Magic 4 Pro","Xiaomi 12T Pro","Sharp Aquos Sense6s","Sharp Aquos Wish","DOOGEE V30"]');
 
 /***/ })
 
