@@ -52,12 +52,14 @@ if ( ! wp_doing_ajax() ) {
 		<?php wc_get_template( 'checkout/terms.php' ); ?>
 
 		<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
-
+			<figure class="security-logo">
+						<img src="<?php echo get_stylesheet_directory_uri();?>/images/security.png"/>
+					</figue>
 		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt' . esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ) . '" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>' ); // @codingStandardsIgnoreLine ?>
 
 		<?php do_action( 'woocommerce_review_order_after_submit' ); ?>
 
-		<?php wp_nonce_field( 'woocommerce-process_checkout', 'woocommerce-process-checkout-nonce' ); ?>
+		<?php wp_nonce_field( 'woocommerce-process_checkout', 'woocommerce-process-checkout-nonce' ); ?> 
 	</div>
 	</div>
 	</div>
