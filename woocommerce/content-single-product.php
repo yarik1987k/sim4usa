@@ -51,12 +51,12 @@ $amount_of_traffic = get_field('amount_of_traffic');
 				</div>
 			</div>
 		<div class="row">
-			<div class="col-6">
+			<div class="col-12 col-md-6">
 				<div class="product-image">
 					<?php woocommerce_show_product_images();?>
 				</div>
 			</div>
-			<div class="col-6">
+			<div class="col-12 col-md-6">
 				<div class="product-option">
 					<div class="product-title"><?php woocommerce_template_single_title();?></div>
 					<div class="product-sub_title">
