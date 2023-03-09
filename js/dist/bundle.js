@@ -1048,6 +1048,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utils_vhUnit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../__utils/vhUnit */ "./web/app/themes/sim4usa/js/src/__utils/vhUnit.js");
 /* harmony import */ var _header_AlertBar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../__header/AlertBar */ "./web/app/themes/sim4usa/js/src/__header/AlertBar.js");
 /* harmony import */ var _shortcodes_popup__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../__shortcodes/popup */ "./web/app/themes/sim4usa/js/src/__shortcodes/popup.js");
+/* harmony import */ var _shortcodes_changeSim__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../__shortcodes/changeSim */ "./web/app/themes/sim4usa/js/src/__shortcodes/changeSim.js");
+
 
 
 
@@ -1075,6 +1077,7 @@ const controller = {
 		_utils_tables__WEBPACK_IMPORTED_MODULE_6__["default"].init();
 		(0,_utils_vhUnit__WEBPACK_IMPORTED_MODULE_8__["default"])();
 		(0,_header_AlertBar__WEBPACK_IMPORTED_MODULE_9__["default"])(); 
+		_shortcodes_changeSim__WEBPACK_IMPORTED_MODULE_11__["default"].init();
 		//miniCart.init();
 		//qtyBtns.init();
 	},
@@ -1130,6 +1133,67 @@ class Accordions {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new Accordions('.bellow__title'));
+
+
+/***/ }),
+
+/***/ "./web/app/themes/sim4usa/js/src/__shortcodes/changeSim.js":
+/*!*****************************************************************!*\
+  !*** ./web/app/themes/sim4usa/js/src/__shortcodes/changeSim.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const $ = jQuery.noConflict();
+
+class ChangeSimType {
+	 
+	init() {
+		this.bindEvents();
+	}
+	bindEvents() {
+		let changeSimButton = $('.change-sim');
+		let closePopup = $('.close-sim-change');
+		let btnOptions = $('.btn-option');
+		$(changeSimButton).on('click', this.popupToggle)
+		$(closePopup).on('click', this.closePopup)
+		$(btnOptions).on('click', this.changeSim)
+	}
+	popupToggle() {
+		event.preventDefault();
+		$(this).next().toggleClass('active');
+	}
+	closePopup(){
+		event.preventDefault();
+		let parent = $(this).prev().prevObject[0].offsetParent;
+		$(parent).toggleClass('active');
+	}
+	changeSim(){
+		event.preventDefault();
+		console.log(this)
+		  let metaId = this.dataset.metaId;
+		  let simType = this.dataset.type;
+ 
+		$.ajax({
+			type: 'POST',
+			url: woocommerce_params.ajax_url,
+			data: {
+				action: 'change_sim',
+				metaId: metaId,
+				simType: simType
+			},
+			success(response) {
+				location.reload();
+			},
+		}); 
+	}
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new ChangeSimType);
 
 
 /***/ }),

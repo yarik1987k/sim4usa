@@ -17,10 +17,44 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-print_r( $item_data );
+ 
+ 
 ?>
 <ul class="variation">
 	<?php foreach ( $item_data as $data ) : ?>
-		<li class="<?php echo sanitize_html_class( 'variation-' . $data['key'] ); ?>"><?php echo wp_kses_post( $data['key'] ); ?>: <?php echo wp_kses_post( wpautop( $data['display'] ) ); ?></li>
+		<?php 
+			switch ($data['key']) {
+				case 'sim type':
+					$data['key'] = 'Sim Type';
+					break;
+				case 'expend covarage':
+					$data['key'] = 'Optional add-on: Canada and Mexico';
+					break;
+				case 'activation date':
+					$data['key'] = 'Activation Date';
+					break;    
+				case 'activation months':
+					$data['key'] = 'Activation plan';
+					break;        
+				default:
+					# code...
+					break;
+			}
+		?>
+		<li class="<?php echo sanitize_html_class( 'variation-' . $data['key'] ); ?>">
+			<?php echo wp_kses_post( $data['key'] ); ?> :  <?php echo wp_kses_post( wpautop( $data['display'] ) ); ?>
+			<?php if($data['key'] === 'Sim Type'):?>
+				<button class="c-btn c-btn-tertiary change-sim" data-sim-type="<?php echo $data['display'];?>">Change sim type</button>
+				<div class="popup-change-sim">
+					<div class="close">
+						<button class="icon icon-close close-sim-change"></button>
+					</div>
+					<div class="sim-options">
+						<button class="btn-option <?php echo ($data['display'] === 'eSIM (Digital Delivery)') ? 'no-active' : '';?>" data-type="esim">Change to eSim sim</button>
+						<button class="btn-option <?php echo ($data['display'] === 'Physical SIM Card') ? 'no-active' : '';?>" data-type="regular">Change to Physical sim</button>
+					</div>
+				</div>
+			<?php endif;?>
+		</li>
 	<?php endforeach; ?>
-	</ul>
+</ul>

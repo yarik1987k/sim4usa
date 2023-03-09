@@ -18,9 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 echo '<div class="container"><div class="row"><div class="col-md-12">';
 do_action( 'woocommerce_before_cart' ); ?>
-<?php 
- 
-?>
+
 					<div class="bread-crumbs">
 						<?php echo woocommerce_breadcrumb(); ?>
 					</div>
@@ -29,17 +27,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
 	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-		<thead>
-			<tr>
-				
-				<th class="product-thumbnail"><span class="screen-reader-text"><?php esc_html_e( 'Thumbnail image', 'woocommerce' ); ?></span></th>
-				<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="product-price"><?php esc_html_e( 'Price', 'woocommerce' ); ?></th>
-				<th class="product-quantity"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
-				<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
-				<th class="product-remove"><span class="screen-reader-text"><?php esc_html_e( 'Remove item', 'woocommerce' ); ?></span></th>
-			</tr>
-		</thead>
+ 
 		<tbody>
 			<?php do_action( 'woocommerce_before_cart_contents' ); ?>
 
@@ -47,6 +35,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 			foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
 				$_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 				$product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+
 
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 					$product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
@@ -67,23 +56,69 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 						</td>
 
-						<td class="product-name" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
+						<td class="product-name" data-product-id="<?php echo $product_id;?>" data-title="<?php esc_attr_e( 'Product', 'woocommerce' ); ?>">
 						<?php
 						if ( ! $product_permalink ) {
 							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
 						} else {
 							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
 						}
-
-						do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
-
+ 
+						do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key ); 
 						// Meta data.
-						echo wc_get_formatted_cart_item_data( $cart_item ); // PHPCS: XSS ok.
+						//echo wc_get_formatted_cart_item_data( $cart_item ); // PHPCS: XSS ok.
 
+						if($cart_item['wapf']){ 
+								# code...
+							 
+								?>
+									<ul class="variation">
+										
+										<?php foreach ( $cart_item['wapf'] as $data ) : ?>
+											<?php 
+												switch ($data['label']) {
+													case 'sim type':
+														$data['label'] = 'Sim Type';
+														break;
+													case 'expend covarage':
+														$data['label'] = 'Optional add-on: Canada and Mexico';
+														break;
+													case 'activation date':
+														$data['label'] = 'Activation Date';
+														break;    
+													case 'activation months':
+														$data['label'] = 'Activation plan';
+														break;        
+													default:
+														# code...
+														break;
+												}
+											?>
+											<li class="<?php echo sanitize_html_class( 'variation-' . $data['label'] ); ?>">
+												<?php echo wp_kses_post( $data['label'] ); ?> :  <?php echo wp_kses_post( wpautop( $data['value'] ) ); ?>
+												<?php if($data['label'] === 'Sim Type'):?>
+													<button class="c-btn c-btn-tertiary change-sim" data-sim-type="<?php echo $data['value'];?>">Change sim type</button>
+													<div class="popup-change-sim">
+														<div class="close">
+															<button class="icon icon-close close-sim-change"></button>
+														</div>
+														<div class="sim-options">
+															<button class="btn-option <?php echo ($data['value'] === 'eSIM (Digital Delivery)') ? 'no-active' : '';?>" data-meta-id="<?php echo $cart_item['wapf'][0]['id'];?>" data-type="esim">Change to eSim sim</button>
+															<button class="btn-option <?php echo ($data['value'] === 'Physical SIM Card') ? 'no-active' : '';?>" data-meta-id="<?php echo $cart_item['wapf'][0]['id'];?>" data-type="regular">Change to Physical sim</button>
+														</div>
+													</div>
+												<?php endif;?>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+							<?php 
+						}
 						// Backorder notification.
 						if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) ) {
 							echo wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>', $product_id ) );
 						}
+
+
 						?>
 						</td>
 
