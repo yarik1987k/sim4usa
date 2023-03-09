@@ -107,8 +107,47 @@ $amount_of_traffic = get_field('amount_of_traffic');
 									</div>
 								</div>
 							</div>
-							
 						<?php endif;?>
+						<div class="sim-tyep-option-hellper">
+							<button class="check-helper"> See the benefits and find the best fit for you
+								<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M1.99609 12.5625C1.99609 7.0425 6.47609 2.5625 11.9961 2.5625C17.5161 2.5625 21.9961 7.0425 21.9961 12.5625C21.9961 18.0825 17.5161 22.5625 11.9961 22.5625C6.47609 22.5625 1.99609 18.0825 1.99609 12.5625ZM10.9961 7.5625V13.5625H12.9961V7.5625H10.9961ZM10.9961 15.5625V17.5625H12.9961V15.5625H10.9961Z" fill="#A5A6F6"/>
+								</svg>
+							</button>
+							<div class="sim-benefit-popup">
+
+									<div class="close-sim-benefit-popup">
+										<button class="icon icon-close"></button>
+									</div>
+									<div class="single-helper">
+										<h5>eSIM Benefits</h4>
+										<p>New Embedded SIM only eligible on select devices and delivered via email.</p>
+										<ul>
+											<li>Securely activate in minutes</li>
+											<li>eSIM capable device can have two active lines on the same phone</li>
+										</ul>
+										<h6>CHECK IF YOUR PHONE IS ESIM ELIGIBLE</h6>
+										<p>These are all eSIM supported devices that let you activate your plan in just a few minutes.</p>
+										<div class="options">
+											<input type="text" id="search-box" placeholder="Enter your phone brand...">
+											<ul id="results-list"></ul>
+										</div>
+									</div>
+									<div class="single-helper">
+										<h5>Physical SIM Benefits</h4>
+										<p>3-in-1 SIM Kit that works in most phones.</p>
+										<ul>
+											<li>Easily switch between devices by popping out your SIM</li>
+										</ul>
+										<h6>CHECK IMEI</h6>
+										<div class="options">
+											<input type="text" id="search-box-imei" placeholder="Enter your IMEI Number...">
+											<button id="submit-imei" class="c-btn ">Submit IMEI</button>
+											<div id="result-imei"></div>
+										</div>
+									</div>
+							</div>
+						</div>
 					</div>
 					<?php woocommerce_template_single_add_to_cart(); ?>
 					<figure class="security-logo">
