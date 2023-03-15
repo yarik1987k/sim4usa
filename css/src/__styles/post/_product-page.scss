@@ -403,12 +403,17 @@
         border-radius: 10px;
     }
     .check-helper{
-        background: transparent;
         border: none;
-        color: paint(black);
+        color: #000000;
         font-weight: 200;
-        font-size: 16   px;
+        font-size: 16px;
         line-height: 24px;
+        background: #f0f0f0;
+        border-radius: 4px;
+        padding: 10px 20px;
+        @include media-breakpoint-down(sm){
+            font-size: 14px;
+        }
     }
     .sim-benefit-popup{
         position: absolute;
@@ -419,6 +424,10 @@
         opacity: 0;
         pointer-events: none;
         z-index: 9;
+        @include media-breakpoint-down(sm){
+            left: 0;
+            margin: 0 20px;
+        }
         &.active{
             opacity: 1;
             pointer-events: initial;
@@ -434,6 +443,10 @@
             position: absolute;
             right: 10px;
             top: 10px;
+            @include media-breakpoint-down(sm){
+                width: rem(40);
+                height: rem(40);
+            }
         }
         .single-helper{
             padding-bottom: 20px;
@@ -464,6 +477,8 @@
                 margin-top: 20px;
                 input{
                     font-size: 14px;
+                    width: 100%;
+                    margin-bottom: rem(20);
                 }
             }
         }
