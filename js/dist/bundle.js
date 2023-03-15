@@ -1051,6 +1051,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shortcodes_changeSim__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../__shortcodes/changeSim */ "./web/app/themes/sim4usa/js/src/__shortcodes/changeSim.js");
 /* harmony import */ var _shortcodes_brandCheck__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../__shortcodes/brandCheck */ "./web/app/themes/sim4usa/js/src/__shortcodes/brandCheck.js");
 /* harmony import */ var _shortcodes_imeiCheck__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../__shortcodes/imeiCheck */ "./web/app/themes/sim4usa/js/src/__shortcodes/imeiCheck.js");
+/* harmony import */ var _page_changeLabels__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../__page/changeLabels */ "./web/app/themes/sim4usa/js/src/__page/changeLabels.js");
+
 
 
 
@@ -1084,6 +1086,7 @@ const controller = {
 		_shortcodes_changeSim__WEBPACK_IMPORTED_MODULE_11__["default"].init();
 		_shortcodes_brandCheck__WEBPACK_IMPORTED_MODULE_12__["default"].init();
 		_shortcodes_imeiCheck__WEBPACK_IMPORTED_MODULE_13__["default"].init();
+		_page_changeLabels__WEBPACK_IMPORTED_MODULE_14__["default"].init();
 		//miniCart.init();
 		//qtyBtns.init();
 	},
@@ -1106,6 +1109,73 @@ const controller = {
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (controller);
 
+
+/***/ }),
+
+/***/ "./web/app/themes/sim4usa/js/src/__page/changeLabels.js":
+/*!**************************************************************!*\
+  !*** ./web/app/themes/sim4usa/js/src/__page/changeLabels.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+const $ = jQuery.noConflict();
+
+class ChangeLabels {
+
+	constructor() {
+	  this.init();
+	}
+  
+	init() {
+	  this.bindEvents();
+	}
+  
+	insertAfter(newNode, existingNode) {
+	  existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+	}
+  
+	handleLabelChange = (event) => {
+		let element = event.currentTarget;
+		let innerLabel = element.getElementsByClassName('wapf-label-text');
+		let innerText = innerLabel[0].innerHTML;
+		if ('Physical SIM Card' === innerText) {
+		  let newLabel = document.createElement('div');
+		  newLabel.textContent = ' 3 size sim card regular micro nano.';
+		  let existingLabel = element.parentElement.nextSibling;
+		  if (existingLabel && existingLabel.classList && existingLabel.classList.contains('shipping-label')) {
+			existingLabel.parentNode.removeChild(existingLabel);
+		  }
+		  newLabel.classList.add('shipping-label');
+		  this.insertAfter(newLabel, element.parentElement);
+		}
+		if ('eSIM (Digital Delivery)' === innerText) {
+		  let newLabel = document.createElement('div');
+		  newLabel.textContent = 'No Shipping cost.';
+		  let existingLabel = element.parentElement.nextSibling;
+		  if (existingLabel && existingLabel.classList && existingLabel.classList.contains('shipping-label')) {
+			existingLabel.parentNode.removeChild(existingLabel);
+		  }
+		  newLabel.classList.add('shipping-label');
+		  this.insertAfter(newLabel, element.parentElement);
+		}
+		element.removeEventListener('change', this.handleLabelChange);
+		element.addEventListener('change', this.handleLabelChange);
+	  }
+  
+	bindEvents() {
+	  let label = document.querySelectorAll('.wapf-checkable');
+	  label.forEach(element => {
+		element.addEventListener('change', this.handleLabelChange);
+	  });
+	}
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new ChangeLabels());
 
 /***/ }),
 
@@ -1646,7 +1716,7 @@ const Video = {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('["Apple iPhone XS","Apple iPhone XS Max","Apple iPhone 11","Apple iPhone 11 Pro","Apple iPhone 11 Pro Max","Apple iPhone SE (2020)","Apple iPhone 12 Mini","Apple iPhone 12","Apple iPhone 12 Pro","Apple iPhone 12 Pro Max","Apple iPhone 13 mini","Apple iPhone 13","Apple iPhone 13 Pro","Apple iPhone 13 Pro Max","Apple iPhone SE (2022)","Apple iPhone 14","Apple iPhone 14 Plus","Apple iPhone 14 Pro","Apple iPhone 14 Pro Max","Apple iPad Pro (2018 and onwards)","Apple iPad Air","Apple iPad","Apple Watch series 3","Apple Watch series 4","Apple Watch series 5","Apple Watch series 6","Apple Watch SE","Google Pixel 3","Google Pixel 3a","Google Pixel 4","Google Pixel 4a","Google Pixel 5","Google Pixel 6","Google Pixel 6a","Google Pixel 6 Pro","Google Pixel 7","Google Pixel 7 Pro","Huawei P40","Huawei P40 Pro (not including the P40 Pro +)","Huawei Mate 40 Pro","Motorola Razr 2019","Motorola Razr 5G","Samsung Galaxy Z Flip","Samsung Galaxy Z Flip 5G","Samsung Galaxy Z Flip3 5G","Samsung Galaxy Z Flip4","Samsung Galaxy Fold","Samsung Galaxy Z Fold2 5G","Samsung Galaxy Z Fold3 5G","Samsung Galaxy Z Fold4","Samsung Galaxy S20","Samsung Galaxy S20+ 5g","Samsung Galaxy S21","Samsung Galaxy S21+ 5G","Samsung Galaxy S21 Ultra 5G","Samsung Galaxy S22","Samsung Galaxy S22+","Samsung Galaxy S22 Ultra","Samsung Galaxy Note 20 Ultra 5G","Samsung Galaxy Note 20","Samsung Galaxy S23","Samsung Galaxy S23+","Samsung Galaxy S23 Ultra","Planet Computers Gemini PDA","Rakuten Mobile Rakuten Mini","Rakuten Mobile Big-S","Rakuten Mobile Big","Rakuten Mobile Hand","Rakuten Mobile Hand 5G","Oppo Find X3 Pro","Oppo Reno 5 A","Oppo Find X5","Oppo Find X5 Pro","Sony Xperia 10 III Lite ","Sony Xperia 10 IV","Sony Xperia 1 IV","Sony Xperia 5 IV","Honor Magic 4 Pro","Xiaomi 12T Pro","Sharp Aquos Sense6s","Sharp Aquos Wish","DOOGEE V30"]');
+module.exports = JSON.parse('["Apple iPhone XS","Apple iPhone XR","Apple iPhone XS Max","Apple iPhone 11","Apple iPhone 11 Pro","Apple iPhone 11 Pro Max","Apple iPhone SE (2020)","Apple iPhone 12 Mini","Apple iPhone 12","Apple iPhone 12 Pro","Apple iPhone 12 Pro Max","Apple iPhone 13 mini","Apple iPhone 13","Apple iPhone 13 Pro","Apple iPhone 13 Pro Max","Apple iPhone SE (2022)","Apple iPhone 14","Apple iPhone 14 Plus","Apple iPhone 14 Pro","Apple iPhone 14 Pro Max","Apple iPad Pro (2018 and onwards)","Apple iPad Air","Apple iPad","Apple Watch series 3","Apple Watch series 4","Apple Watch series 5","Apple Watch series 6","Apple Watch SE","Google Pixel 3","Google Pixel 3a","Google Pixel 4","Google Pixel 4a","Google Pixel 5","Google Pixel 6","Google Pixel 6a","Google Pixel 6 Pro","Google Pixel 7","Google Pixel 7 Pro","Huawei P40","Huawei P40 Pro (not including the P40 Pro +)","Huawei Mate 40 Pro","Motorola Razr 2019","Motorola Razr 5G","Samsung Galaxy Z Flip","Samsung Galaxy Z Flip 5G","Samsung Galaxy Z Flip3 5G","Samsung Galaxy Z Flip4","Samsung Galaxy Fold","Samsung Galaxy Z Fold2 5G","Samsung Galaxy Z Fold3 5G","Samsung Galaxy Z Fold4","Samsung Galaxy S20","Samsung Galaxy S20+ 5g","Samsung Galaxy S21","Samsung Galaxy S21+ 5G","Samsung Galaxy S21 Ultra 5G","Samsung Galaxy S22","Samsung Galaxy S22+","Samsung Galaxy S22 Ultra","Samsung Galaxy Note 20 Ultra 5G","Samsung Galaxy Note 20","Samsung Galaxy S23","Samsung Galaxy S23+","Samsung Galaxy S23 Ultra","Planet Computers Gemini PDA","Rakuten Mobile Rakuten Mini","Rakuten Mobile Big-S","Rakuten Mobile Big","Rakuten Mobile Hand","Rakuten Mobile Hand 5G","Oppo Find X3 Pro","Oppo Reno 5 A","Oppo Find X5","Oppo Find X5 Pro","Sony Xperia 10 III Lite ","Sony Xperia 10 IV","Sony Xperia 1 IV","Sony Xperia 5 IV","Honor Magic 4 Pro","Xiaomi 12T Pro","Sharp Aquos Sense6s","Sharp Aquos Wish","DOOGEE V30"]');
 
 /***/ })
 

@@ -12,6 +12,7 @@ import popup from '../__shortcodes/popup';
 import changeSim from '../__shortcodes/changeSim';
 import brandCheck from '../__shortcodes/brandCheck';
 import imeiCheck from '../__shortcodes/imeiCheck';
+import changeLabels from '../__page/changeLabels';
 const headerMobile = new MobileHeader();
 
 // GLOBAL APP CONTROLLER
@@ -31,6 +32,7 @@ const controller = {
 		changeSim.init();
 		brandCheck.init();
 		imeiCheck.init();
+		changeLabels.init();
 		//miniCart.init();
 		//qtyBtns.init();
 	},
