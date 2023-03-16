@@ -846,7 +846,6 @@ const SimpleSliderCardsNoDs = new Slider('.cards-slider-init--no-desktop', {
 	slidesToShow: 3,
 	slidesToScroll: 3,
 	dots:true,
-	mobileFirst: true,
 	responsive: [
         {
            breakpoint: 767,
