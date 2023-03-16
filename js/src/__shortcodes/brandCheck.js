@@ -16,31 +16,34 @@ class BrandCheck {
 	  var resultsList = document.getElementById("results-list");
 	  
 	  // Bind the search function to the oninput event of the search box
-	  searchBox.addEventListener("input", function() {
-		// Get the search term from the input field
-		var searchTerm = searchBox.value;
-  
-		// If the search string is empty, clear the results list and return
-		if (searchTerm === "") {
-		  resultsList.innerHTML = "";
-		  return;
-		}
-  
-		// Search the array for matches
-		var results = Brands.filter(function(item) {
-		  return item.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
-		});
-  
-		// Display the results in the results list
-		resultsList.innerHTML = "";
-		if (results.length === 0) {
-		  resultsList.innerHTML = "<li>No results found.</li>";
-		} else {
-		  results.forEach(function(item) {
-			resultsList.innerHTML += "<li>" + item + "</li>";
+	  if(searchBox){
+		searchBox.addEventListener("input", function() {
+			// Get the search term from the input field
+			var searchTerm = searchBox.value;
+	  
+			// If the search string is empty, clear the results list and return
+			if (searchTerm === "") {
+			  resultsList.innerHTML = "";
+			  return;
+			}
+	  
+			// Search the array for matches
+			var results = Brands.filter(function(item) {
+			  return item.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+			});
+	  
+			// Display the results in the results list
+			resultsList.innerHTML = "";
+			if (results.length === 0) {
+			  resultsList.innerHTML = "<li>No results found.</li>";
+			} else {
+			  results.forEach(function(item) {
+				resultsList.innerHTML += "<li>" + item + "</li>";
+			  });
+			}
 		  });
-		}
-	  });
+	  }
+	  
 	}
 
 	popupToglle(){
