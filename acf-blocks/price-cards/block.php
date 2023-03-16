@@ -25,7 +25,7 @@ if ( ! empty( $cards ) ) :
 
 	$count = count($cards);
 	$card_class = ($count > 2) ? 'col-4' : 'col-5' ;
-	$slider_init = ($count > 2) ? 'cards-slider-init' : '' ; 
+	$slider_init = ($count > 2) ? 'cards-slider-init' : 'cards-slider-init--no-desktop' ; 
 
 ?><section id="<?php esc_attr_e( $content_block->get_block_id() ); ?>" class="<?php esc_attr_e( $main_block_class ); ?>">
 		<?php echo wp_kses( $content_block->get_block_spacing(), 'inline-style' ); ?>

@@ -758,6 +758,7 @@ __webpack_require__.r(__webpack_exports__);
 const controller = {
 	init() {
 		_js_src_utils_sliders__WEBPACK_IMPORTED_MODULE_0__.SimpleSliderCards.init(); 
+		_js_src_utils_sliders__WEBPACK_IMPORTED_MODULE_0__.SimpleSliderCardsNoDs.init();
 	},
 	loaded() {},
 	resized() { 
@@ -783,6 +784,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "FluidSlider": () => (/* binding */ FluidSlider),
 /* harmony export */   "SimpleSlider": () => (/* binding */ SimpleSlider),
 /* harmony export */   "SimpleSliderCards": () => (/* binding */ SimpleSliderCards),
+/* harmony export */   "SimpleSliderCardsNoDs": () => (/* binding */ SimpleSliderCardsNoDs),
 /* harmony export */   "TestimonialSlider": () => (/* binding */ TestimonialSlider)
 /* harmony export */ });
 const $ = jQuery.noConflict();
@@ -837,6 +839,20 @@ const SimpleSliderCards = new Slider('.cards-slider-init', {
 			},
 		},
 	],
+}); 
+const SimpleSliderCardsNoDs = new Slider('.cards-slider-init--no-desktop', {
+	centerMode: false,
+	variableWidth: false,
+	slidesToShow: 3,
+	slidesToScroll: 3,
+	dots:true,
+	mobileFirst: true,
+	responsive: [
+        {
+           breakpoint: 767,
+           settings: "unslick"
+        }
+    ]
 }); 
 const TestimonialSlider = new Slider('.testimonial-slider'); 
 const FluidSlider = new Slider('.gallery-slider__slider-fluid', { 

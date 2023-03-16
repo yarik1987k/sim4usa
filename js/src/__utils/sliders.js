@@ -51,6 +51,20 @@ const SimpleSliderCards = new Slider('.cards-slider-init', {
 		},
 	],
 }); 
+const SimpleSliderCardsNoDs = new Slider('.cards-slider-init--no-desktop', {
+	centerMode: false,
+	variableWidth: false,
+	slidesToShow: 3,
+	slidesToScroll: 3,
+	dots:true,
+	mobileFirst: true,
+	responsive: [
+        {
+           breakpoint: 767,
+           settings: "unslick"
+        }
+    ]
+}); 
 const TestimonialSlider = new Slider('.testimonial-slider'); 
 const FluidSlider = new Slider('.gallery-slider__slider-fluid', { 
 	centerMode: true,
@@ -65,4 +79,4 @@ const FluidSlider = new Slider('.gallery-slider__slider-fluid', {
 		},
 	],
 });
-export { SimpleSlider, TestimonialSlider, FluidSlider, SimpleSliderCards };
+export { SimpleSlider, TestimonialSlider, FluidSlider, SimpleSliderCards, SimpleSliderCardsNoDs };
