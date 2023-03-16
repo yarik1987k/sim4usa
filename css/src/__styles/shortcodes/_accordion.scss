@@ -3,7 +3,13 @@
 	margin-bottom: rem(40);
 
 	@include media-breakpoint-up(md) {
-		margin-bottom: rem(80);
+		margin-bottom: rem(80); 
+	}
+	table{
+		width: 100%;
+		td{
+			padding: 10px;
+		}
 	}
 }
 
