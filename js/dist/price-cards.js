@@ -820,7 +820,7 @@ class Slider {
 }
 
 const SimpleSlider = new Slider('.gallery-slider__slider');
-const SimpleSliderCards = new Slider('.cards-slider', {
+const SimpleSliderCards = new Slider('.cards-slider-init', {
 	centerMode: false,
 	variableWidth: false,
 	slidesToShow: 3,
