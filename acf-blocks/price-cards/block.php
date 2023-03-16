@@ -25,11 +25,13 @@ if ( ! empty( $cards ) ) :
 ?><section id="<?php esc_attr_e( $content_block->get_block_id() ); ?>" class="<?php esc_attr_e( $main_block_class ); ?>">
 		<?php echo wp_kses( $content_block->get_block_spacing(), 'inline-style' ); ?>
 		<div class="container">
-			<div class="row cards-slider">
+			<div class="row cards-slider justify-content-center">
 			<?php
+				$count = count($cards);
+				$card_class = ($count > 2) ? 'col-4' : 'col-6' ;
 				foreach ( $cards as $card ) { ?>
 				
-				<div class="col-4">
+				<div class="<?php echo $card_class;?>">
 					<div class="single-card">
 						<div class="single-card__top">
 							<div class="single-card__inner">
