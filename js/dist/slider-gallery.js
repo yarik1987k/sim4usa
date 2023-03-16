@@ -953,10 +953,19 @@ const SimpleSliderCardsNoDs = new Slider('.cards-slider-init--no-desktop', {
 	slidesToShow: 3,
 	slidesToScroll: 3,
 	dots:true,
-	responsive: [
+    responsive: [
         {
-           breakpoint: 767,
-           settings: "unslick"
+            breakpoint: 9999,
+            settings: "unslick"
+        },
+        {
+            breakpoint: 767,
+             settings: {
+				centerMode: false,
+				variableWidth: false,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+                }
         }
     ]
 }); 
