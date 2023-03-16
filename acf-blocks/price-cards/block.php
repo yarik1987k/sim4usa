@@ -25,7 +25,7 @@ if ( ! empty( $cards ) ) :
 ?><section id="<?php esc_attr_e( $content_block->get_block_id() ); ?>" class="<?php esc_attr_e( $main_block_class ); ?>">
 		<?php echo wp_kses( $content_block->get_block_spacing(), 'inline-style' ); ?>
 		<div class="container">
-			<div class="row cards-slider justify-content-center">
+			<div class="row cards-slider flex-column align-items-center justify-content-center">
 			<?php
 				$count = count($cards);
 				$card_class = ($count > 2) ? 'col-4' : 'col-6' ;
