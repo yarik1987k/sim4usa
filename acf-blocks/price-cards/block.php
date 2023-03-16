@@ -22,13 +22,17 @@ $content_block		= new Content_Block_Gutenberg( $block );
 $main_block_class	= 'acf-block block-price-cards';
 $cards 				= get_field('cards'); 
 if ( ! empty( $cards ) ) : 
+
+	$count = count($cards);
+	$card_class = ($count > 2) ? 'col-4' : 'col-6' ;
+	$slider_init = ($count > 2) ? 'cards-slider-init' : '' ; 
+
 ?><section id="<?php esc_attr_e( $content_block->get_block_id() ); ?>" class="<?php esc_attr_e( $main_block_class ); ?>">
 		<?php echo wp_kses( $content_block->get_block_spacing(), 'inline-style' ); ?>
 		<div class="container">
-			<div class="row cards-slider flex-column align-items-center justify-content-center">
+			<div class="row cards-slider <?php echo $slider_init; ?> flex-column align-items-center justify-content-center">
 			<?php
-				$count = count($cards);
-				$card_class = ($count > 2) ? 'col-4' : 'col-6' ;
+
 				foreach ( $cards as $card ) { ?>
 				
 				<div class="<?php echo $card_class;?>">
